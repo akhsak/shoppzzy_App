@@ -21,13 +21,13 @@ class SelectLoginScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               vertical: size.height * .07, horizontal: size.width * .1),
           child: SizedBox(
-            height: size.height * .55,
+           // height: size.height * .55,
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [
-                  Image.asset('assets/RoadWay.png'),
-                  SizedBox(height: size.height * .05),
+                  Image.asset('assets/welcome_cart.jpg'),
+                //  SizedBox(height: size.height * .05),
                   ButtonWidgets().selectLogin(size, onPressed: () {
                     Navigator.push(
                       context,
@@ -45,24 +45,24 @@ class SelectLoginScreen extends StatelessWidget {
                           name: 'User Login',
                           color: Colors.white,
                           fontsize: 20)),
-                  SizedBox(height: size.height * .05),
-                  ButtonWidgets().selectLogin(
-                    size,
-                    onPressed: () {
+                 // SizedBox(height: size.height * .05),
+                 // ButtonWidgets().selectLogin(
+                  //  size,
+                  //  onPressed: () {
                       // Navigator.push(
                       //     context,
                       //     MaterialPageRoute(
                       //       builder: (context) => const AdminLoginScreen(),
                       //     ));
-                    },
-                    icon: const Icon(
-                      Icons.person_outline,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                    label: textPoppins(
-                        name: 'Admin Login', color: Colors.white, fontsize: 20),
-                  ),
+                  //  },
+                  //  icon: const Icon(
+                  //    Icons.person_outline,
+                   //   size: 30,
+                   //   color: Colors.white,
+                   // ),
+                   //  label: textPoppins(
+                     //    name: 'Admin Login', color: Colors.white, fontsize: 20),
+                 // ),
                 ],
               ),
             ),

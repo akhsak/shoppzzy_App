@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/view/authontication_screen.dart/authontication.dart';
 import 'package:olx_app_firebase/widgets/button_widget.dart';
-import 'package:olx_app_firebase/widgets/text_style.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -21,21 +20,22 @@ class WelcomeScreen extends StatelessWidget {
                     image: AssetImage('assets/welcome_cart.jpg'),
                     fit: BoxFit.cover)),
           ),
-          Positioned(
+          const Positioned(
             top: 100,
             left: 25,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                textPoppins(
-                    name: 'olxx',
-                    fontsize: 25,
-                    fontweight: FontWeight.w600,
-                    color: Colors.white),
-                textAbel(
-                    name: ' ecommerece application ',
-                    color: Colors.white,
-                    fontsize: 17,
-                    fontweight: FontWeight.w600),
+                // textPoppins(
+                //     name: 'olxx',
+                //     fontsize: 25,
+                //     fontweight: FontWeight.w600,
+                //     color: const Color.fromARGB(255, 16, 15, 15)),
+                // textAbel(
+                //     name: ' ecommerece application ',
+                //     color: const Color.fromARGB(255, 8, 8, 8),
+                //     fontsize: 17,
+                //     fontweight: FontWeight.w600),
               ],
             ),
           ),
@@ -45,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
               right: 15,
               child: ButtonWidgets().rectangleButton(size,
                   name: 'Lets Start',
-                  bgColor: Color.fromARGB(255, 8, 8, 8),
+                  bgColor: const Color.fromARGB(255, 8, 8, 8),
                   fgColor: const Color.fromARGB(255, 228, 222, 222),
                   onPressed: () {
                 Navigator.pushReplacement(

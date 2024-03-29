@@ -2,8 +2,10 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/authontication_provider.dart';
+import 'package:olx_app_firebase/view/authontication_screen.dart/widgets/login_widgtets.dart';
 import 'package:olx_app_firebase/widgets/bottom_screen.dart';
 import 'package:olx_app_firebase/widgets/button_widget.dart';
+import 'package:olx_app_firebase/widgets/snackbar_widget.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
 import 'package:provider/provider.dart';
 
@@ -41,28 +43,28 @@ class OtpScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // LoginWidgets().otpTextFormField(
-                    //   context,
-                    // ),
+                    LoginWidgets().otpTextFormField(
+                      context,
+                    ),
                     ButtonWidgets().rectangleButton(size, name: 'V E R I F Y',
                         onPressed: () {
-                      // if (formkey.currentState!.validate()) {
-                      //   try {
-                      //     authProvider.verifyOtp(
-                      //         authProvider.otpController.text, context);
-                      //     // Navigator.pushAndRemoveUntil(
-                      //     //     context,
-                      //     //     MaterialPageRoute(
-                      //     //         builder: (context) => BottomScreen()),
-                      //     //     (route) => false);
-                      //   } catch (e) {
-                      //     log('error during otp: $e');
-                      //     SnackBarWidget()
-                      //         .showErrorSnackbar(context, 'Invalid OTP');
-                      //   }
-                      // } else {
-                      //   log('aaaaaa');
-                      // }
+                      if (formkey.currentState!.validate()) {
+                        try {
+                          authProvider.verifyOtp(
+                              authProvider.otpController.text, context);
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BottomScreen()),
+                              (route) => false);
+                        } catch (e) {
+                          log('error during otp: $e');
+                          SnackBarWidget()
+                              .showErrorSnackbar(context, 'Invalid OTP');
+                        }
+                      } else {
+                        log('aaaaaa');
+                      }
 
                       if (authProvider.otpController.text.isNotEmpty) {
                         try {

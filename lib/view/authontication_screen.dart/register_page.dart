@@ -36,7 +36,7 @@ class RegisterScreen extends StatelessWidget {
                       icon: const Icon(Icons.arrow_back_ios_new_rounded)),
                   SizedBox(width: size.width * .07),
                   textPoppins(
-                    name: 'RoadWay Register',
+                    name: 'olx Register',
                     fontsize: 25,
                     fontweight: FontWeight.w600,
                   ),
