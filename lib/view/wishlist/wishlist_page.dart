@@ -6,7 +6,11 @@ class WishlistPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('addpage')),
+      appBar: AppBar(title: Text('wishlist'),),
+      body: ListTile()
+      
+
+      
     );
   }
 }

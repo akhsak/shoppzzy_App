@@ -14,9 +14,9 @@ class BottomScreen extends StatelessWidget {
 
   List screens = [
     const HomePage(),
+    const AddPage(),
     const WishlistPage(),
     const SettingsPage(),
-    const AddPage()
   ];
 
   @override
@@ -48,12 +48,12 @@ class BottomScreen extends StatelessWidget {
                   ),
                   label: 'ᴴᵒᵐᵉ',
                 ),
-                 BottomNavigationBarItem(
+                BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.settings,
+                    Icons.add,
                     size: 25,
                   ),
-                  label: 'ˢᵉᵗᵗᶦⁿᵍˢ',
+                  label: 'ᴬᵈᵈⁱᵗᵉᵐˢ',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
