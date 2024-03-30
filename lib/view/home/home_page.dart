@@ -1,8 +1,12 @@
+
+
+
 import 'package:flutter/material.dart';
+import 'package:olx_app_firebase/view/home/widget/home_widget.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key}) : super();
+  HomePage({Key? key}) : super(key: key);
 
   // Dummy data for categories
   final List<Map<String, dynamic>> categories = [
@@ -26,21 +30,21 @@ class HomePage extends StatelessWidget {
             Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 80, left: 18),
-                  child: Container(
+                  padding: const EdgeInsets.only(top: 80, left: 18),
+                  child: SizedBox(
                     height: 50,
                     width: 330,
                     child: TextField(
                       decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search),
+                          prefixIcon: const Icon(Icons.search),
                           hintText: 'search...',
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5))),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 75, left: 15),
+                const Padding(
+                  padding: EdgeInsets.only(top: 75, left: 15),
                   child: Icon(Icons.shopping_bag_outlined),
                 ),
               ],
@@ -54,8 +58,8 @@ class HomePage extends StatelessWidget {
                     fontsize: 15,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
+                const Padding(
+                  padding: EdgeInsets.only(top: 20),
                   child: Text(
                     'See all',
                     style: TextStyle(
@@ -72,50 +76,63 @@ class HomePage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: categories.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return _buildCategoryCard(
-                        categories[index]['name'], categories[index]['image']);
+                    return BuildCategoryCard(
+                      title: categories[index]['name'],
+                      imagePath: categories[index]['image'],
+                    );
                   },
                 ),
               ),
             ),
-            Container(
-              height: 100,
-              width: 410,
-              color: Colors.white,
-              // child: Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Column(
-              //       crossAxisAlignment: CrossAxisAlignment.center,
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         CircleAvatar(
-              //           radius: 30,
-              //           backgroundImage: AssetImage('assets/your_image.png'),
-              //         ),
-              //       ],
-              //     )
-              //   ],
-              // ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'my products',
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal),
+                  )
+                ],
+              ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 18, right: 18),
+              child: Row(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 180,
+                        width: 180,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/6fbc21e09012154395ce7ceef40d451e.jpg',
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        'shirt',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Text('Essential mens shirt'),
+                    ],
+                  ),
+                ],
+              ),
+            )
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildCategoryCard(String title, String imagePath) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Column(
-        children: [
-          CircleAvatar(
-            radius: 30,
-            backgroundImage: AssetImage(imagePath),
-          ),
-          SizedBox(height: 8),
-          Text(title),
-        ],
       ),
     );
   }
