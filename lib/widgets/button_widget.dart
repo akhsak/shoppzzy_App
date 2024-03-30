@@ -20,7 +20,7 @@ class ButtonWidgets {
       child: ElevatedButton(
         style: ButtonStyle(
           shape: const MaterialStatePropertyAll(BeveledRectangleBorder()),
-          backgroundColor: MaterialStateProperty.all(bgColor ?? Colors.black),
+          backgroundColor: MaterialStateProperty.all(bgColor ??  Color.fromARGB(255, 38, 17, 111)),
           foregroundColor: MaterialStateProperty.all(fgColor ?? Colors.white),
         ),
         onPressed: onPressed,
@@ -45,14 +45,14 @@ class ButtonWidgets {
     return Container(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
-        border: Border.all(color: Colors.black, width: 2),
+        border: Border.all(color:  Color.fromARGB(255, 38, 17, 111), width: 2),
       ),
       height: height ?? size.height,
       width: width ?? size.width,
       child: ElevatedButton(
         style: ButtonStyle(
           shape: const MaterialStatePropertyAll(BeveledRectangleBorder()),
-          backgroundColor: MaterialStateProperty.all(bgColor ?? Colors.black),
+          backgroundColor: MaterialStateProperty.all(bgColor ?? Color.fromARGB(255, 38, 17, 111)),
           foregroundColor: MaterialStateProperty.all(fgColor ?? Colors.white),
         ),
         onPressed: onPressed,
@@ -72,14 +72,14 @@ class ButtonWidgets {
     return Container(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
-        border: Border.all(color: Colors.black, width: 2),
+        border: Border.all(color:  Color.fromARGB(255, 38, 17, 111), width: 2),
       ),
       height: size.height * .08,
       width: size.width * double.infinity,
       child: ElevatedButton.icon(
         style: ButtonStyle(
           shape: const MaterialStatePropertyAll(BeveledRectangleBorder()),
-          backgroundColor: MaterialStateProperty.all(Colors.black),
+          backgroundColor: MaterialStateProperty.all( Color.fromARGB(255, 38, 17, 111)),
           foregroundColor: MaterialStateProperty.all(Colors.white),
         ),
         onPressed: onPressed,

@@ -6,7 +6,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('addpage')),
+      appBar: AppBar(title: Text('store'),
+      actions: [
+        IconButton(onPressed: (){}, icon:Icon(Icons.search))
+      ],),
+      body: Center(child: Text('homepage')),
     );
   }
 }

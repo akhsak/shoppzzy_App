@@ -45,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
               right: 15,
               child: ButtonWidgets().rectangleButton(size,
                   name: 'Lets Start',
-                  bgColor: const Color.fromARGB(255, 8, 8, 8),
+                  bgColor: Color.fromARGB(255, 38, 17, 111),
                   fgColor: const Color.fromARGB(255, 228, 222, 222),
                   onPressed: () {
                 Navigator.pushReplacement(

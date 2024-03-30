@@ -150,7 +150,7 @@ class RegisterScreen extends StatelessWidget {
   circularIndicator() {
     if (isLoading = true) {
       return const CircularProgressIndicator(
-        color: Colors.black,
+        color: Color.fromARGB(255, 38, 17, 111),
       );
     }
   }
