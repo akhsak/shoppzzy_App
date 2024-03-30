@@ -13,7 +13,7 @@ class BottomScreen extends StatelessWidget {
   BottomScreen({super.key});
 
   List screens = [
-    const HomePage(),
+     HomePage(),
     const AddPage(),
     const WishlistPage(),
     const SettingsPage(),
