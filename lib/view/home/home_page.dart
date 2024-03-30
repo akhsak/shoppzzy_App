@@ -126,6 +126,12 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       const Text('Essential mens shirt'),
+                      Row(
+                        children: [
+                          Icon(Icons.currency_rupee),
+                          Text('1,100',style: TextStyle(fontWeight: FontWeight.bold),)
+                        ],
+                      )
                     ],
                   ),
                 ],
