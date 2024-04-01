@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/view/home/widget/home_widget.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
@@ -129,11 +126,129 @@ class HomePage extends StatelessWidget {
                       Row(
                         children: [
                           Icon(Icons.currency_rupee),
-                          Text('1,100',style: TextStyle(fontWeight: FontWeight.bold),)
+                          Text(
+                            '1,100',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
                         ],
                       )
                     ],
                   ),
+                              SizedBox(width: 50,),
+
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 180,
+                        width: 180,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/6fbc21e09012154395ce7ceef40d451e.jpg',
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        'shirt',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Text('Essential mens shirt'),
+                      Row(
+                        children: [
+                          Icon(Icons.currency_rupee),
+                          Text(
+                            '1,100',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  
+                ],
+              ),
+            ),
+             Padding(
+              padding: const EdgeInsets.only(top: 20, left: 18, right: 18),
+              child: Row(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 180,
+                        width: 180,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/6fbc21e09012154395ce7ceef40d451e.jpg',
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        'shirt',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Text('Essential mens shirt'),
+                      Row(
+                        children: [
+                          Icon(Icons.currency_rupee),
+                          Text(
+                            '1,100',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                              SizedBox(width: 30,),
+
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 180,
+                        width: 180,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/6fbc21e09012154395ce7ceef40d451e.jpg',
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        'shirt',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Text('Essential mens shirt'),
+                      Row(
+                        children: [
+                          Icon(Icons.currency_rupee),
+                          Text(
+                            '1,100',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  
                 ],
               ),
             )
