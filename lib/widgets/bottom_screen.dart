@@ -92,7 +92,7 @@ class BottomScreen extends StatelessWidget {
   final List<Widget> screens = [
     HomePage(),
     const AddPage(),
-    const WishlistPage(),
+  //  const WishlistPage(),
     const SettingsPage(),
   ];
 
@@ -111,8 +111,8 @@ class BottomScreen extends StatelessWidget {
           children: [
             _BottomNavItem(Icons.home, 'ᴴᵒᵐᵉ', 0, context),
             _BottomNavItem(Icons.add, 'ᴬᵈᵈⁱᵗᵉᵐˢ', 1, context),
-            _BottomNavItem(Icons.favorite_outlined, 'ʷᶦˢʰˡᶦˢᵗ', 2, context),
-            _BottomNavItem(Icons.settings, 'ˢᵉᵗᵗᶦⁿᵍˢ', 3, context),
+           // _BottomNavItem(Icons.favorite_outlined, 'ʷᶦˢʰˡᶦˢᵗ', 2, context),
+            _BottomNavItem(Icons.settings, 'ˢᵉᵗᵗᶦⁿᵍˢ', 2, context),
           ],
         ),
       ),

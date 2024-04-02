@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/view/home/widget/home_widget.dart';
+import 'package:olx_app_firebase/view/screens/details_page.dart';
+import 'package:olx_app_firebase/view/wishlist/wishlist_page.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+  HomePage({super.key});
 
   // Dummy data for categories
   final List<Map<String, dynamic>> categories = [
@@ -15,6 +17,17 @@ class HomePage extends StatelessWidget {
     {'name': 'Shoes', 'image': 'assets/welcome_cart.jpg'},
     {'name': 'Shoes', 'image': 'assets/welcome_cart.jpg'},
     {'name': 'Shoes', 'image': 'assets/welcome_cart.jpg'},
+  ];
+
+  final List<Map<String, dynamic>> images = [
+    {'name': 'T-Shirt', 'image': 'assets/6fbc21e09012154395ce7ceef40d451e.jpg'},
+    {'name': 'Jackets', 'image': 'assets/6fbc21e09012154395ce7ceef40d451e.jpg'},
+    {'name': 'Pants', 'image': 'assets/6fbc21e09012154395ce7ceef40d451e.jpg'},
+    {'name': 'Dress', 'image': 'assets/6fbc21e09012154395ce7ceef40d451e.jpg'},
+    {'name': 'T-Shirt', 'image': 'assets/6fbc21e09012154395ce7ceef40d451e.jpg'},
+    {'name': 'Jackets', 'image': 'assets/6fbc21e09012154395ce7ceef40d451e.jpg'},
+    {'name': 'Pants', 'image': 'assets/6fbc21e09012154395ce7ceef40d451e.jpg'},
+    {'name': 'Dress', 'image': 'assets/6fbc21e09012154395ce7ceef40d451e.jpg'},
   ];
 
   @override
@@ -40,9 +53,17 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 75, left: 15),
-                  child: Icon(Icons.shopping_bag_outlined),
+                Padding(
+                  padding: const EdgeInsets.only(top: 75, left: 15),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const WishlistPage()));
+                    },
+                    child: const Icon(Icons.favorite_border_outlined,size: 30,),
+                  ),
                 ),
               ],
             ),
@@ -82,7 +103,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(5.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -91,167 +112,98 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 15,
                         color: Colors.black,
-                        fontWeight: FontWeight.normal),
+                        fontWeight: FontWeight.w600),
                   )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20, left: 18, right: 18),
-              child: Row(
+              padding: const EdgeInsets.only(left: 18, right: 18),
+              child: Column(
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 180,
-                        width: 180,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/6fbc21e09012154395ce7ceef40d451e.jpg',
+                  //const SizedBox(height: 5),
+                  GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 0.75,
+                    ),
+                    itemCount: categories.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const DetailsPage()));
+                        },
+                        child: Stack(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 155,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        images[index]['image'],
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    // borderRadius: BorderRadius.circular(10), // Add border radius
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'shirt',
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text('Essential mens shirt'),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.currency_rupee),
+                                          Text(
+                                            '1,100',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'shirt',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const Text('Essential mens shirt'),
-                      Row(
-                        children: [
-                          Icon(Icons.currency_rupee),
-                          Text(
-                            '1,100',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                              SizedBox(width: 50,),
-
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 180,
-                        width: 180,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/6fbc21e09012154395ce7ceef40d451e.jpg',
+                            Positioned(
+                              top: 5,
+                              right: 5,
+                              child: GestureDetector(
+                                onTap: () {
+                                  // Handle favorite button tap
+                                },
+                                child: const Icon(Icons.favorite_outline_outlined),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ),
-                      const Text(
-                        'shirt',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const Text('Essential mens shirt'),
-                      Row(
-                        children: [
-                          Icon(Icons.currency_rupee),
-                          Text(
-                            '1,100',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      )
-                    ],
+                      );
+                    },
                   ),
-                  
                 ],
               ),
             ),
-             Padding(
-              padding: const EdgeInsets.only(top: 20, left: 18, right: 18),
-              child: Row(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 180,
-                        width: 180,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/6fbc21e09012154395ce7ceef40d451e.jpg',
-                            ),
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'shirt',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const Text('Essential mens shirt'),
-                      Row(
-                        children: [
-                          Icon(Icons.currency_rupee),
-                          Text(
-                            '1,100',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                              SizedBox(width: 30,),
-
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 180,
-                        width: 180,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/6fbc21e09012154395ce7ceef40d451e.jpg',
-                            ),
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'shirt',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const Text('Essential mens shirt'),
-                      Row(
-                        children: [
-                          Icon(Icons.currency_rupee),
-                          Text(
-                            '1,100',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                  
-                ],
-              ),
-            )
           ],
         ),
       ),

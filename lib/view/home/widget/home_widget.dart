@@ -1,27 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// class BuildCategoryCard {
-  
-
-
-// Widget _buildCategoryCard(String title, String imagePath) {
-//     return Padding(
-//       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-//       child: Column(
-//         children: [
-//           CircleAvatar(
-//             radius: 30,
-//             backgroundImage: AssetImage(imagePath),
-//           ),
-//           const SizedBox(height: 8),
-//           Text(title),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-
 import 'package:flutter/material.dart';
 
 class BuildCategoryCard extends StatelessWidget {

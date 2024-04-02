@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:olx_app_firebase/controller/provider.dart';
+import 'package:olx_app_firebase/controller/product_provider.dart';
 import 'package:provider/provider.dart';
 
 class CustomTextFormField extends StatelessWidget {
