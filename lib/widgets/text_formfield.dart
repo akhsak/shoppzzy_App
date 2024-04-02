@@ -84,7 +84,7 @@ Widget dateTextFormField() {
           icon: const Icon(Icons.calendar_today),
         ),
         focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black),
+         borderSide: BorderSide(color: Colors.black),
         ),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),

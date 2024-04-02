@@ -9,14 +9,13 @@ class HomePage extends StatelessWidget {
 
   // Dummy data for categories
   final List<Map<String, dynamic>> categories = [
-    {'name': 'T-Shirt', 'image': 'assets/welcome_cart.jpg'},
-    {'name': 'Jackets', 'image': 'assets/welcome_cart.jpg'},
-    {'name': 'Pants', 'image': 'assets/welcome_cart.jpg'},
-    {'name': 'Dress', 'image': 'assets/welcome_cart.jpg'},
-    {'name': 'Shoes', 'image': 'assets/welcome_cart.jpg'},
-    {'name': 'Shoes', 'image': 'assets/welcome_cart.jpg'},
-    {'name': 'Shoes', 'image': 'assets/welcome_cart.jpg'},
-    {'name': 'Shoes', 'image': 'assets/welcome_cart.jpg'},
+    {'name': 'T-Shirt', 'image': 'assets/T-shirtt_img.jpg'},
+    {'name': 'Pants', 'image': 'assets/pants_img.jpg'},
+    {'name': 'Dress', 'image': 'assets/dress__img.jpg'},
+    {'name': 'Jackets', 'image': 'assets/jackets_img.jpg'},
+    {'name': 'Shoes', 'image': 'assets/shoes_img.jpg'},
+    {'name': 'Bag', 'image': 'assets/bag_img.jpg'},
+    
   ];
 
   final List<Map<String, dynamic>> images = [
@@ -62,7 +61,10 @@ class HomePage extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => const WishlistPage()));
                     },
-                    child: const Icon(Icons.favorite_border_outlined,size: 30,),
+                    child: const Icon(
+                      Icons.favorite_border_outlined,
+                      size: 30,
+                    ),
                   ),
                 ),
               ],
@@ -125,7 +127,8 @@ class HomePage extends StatelessWidget {
                   GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
@@ -193,7 +196,8 @@ class HomePage extends StatelessWidget {
                                 onTap: () {
                                   // Handle favorite button tap
                                 },
-                                child: const Icon(Icons.favorite_outline_outlined),
+                                child:
+                                    const Icon(Icons.favorite_outline_outlined),
                               ),
                             ),
                           ],
