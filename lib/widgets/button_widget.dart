@@ -10,18 +10,18 @@ class ButtonWidgets {
       BorderRadius? borderRadius,
       Border? border}) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius:
-            borderRadius ?? const BorderRadius.all(Radius.circular(10)),
-        border: border ?? Border.all(color: Colors.black, width: 2),
-      ),
+      // decoration: BoxDecoration(
+      //   borderRadius:
+      //       borderRadius ?? const BorderRadius.all(Radius.circular(10)),
+       // border: border ?? Border.all(color: Colors.black, width: 2),
+     // ),
       height: size.height * .08,
       width: size.width * double.infinity,
       child: ElevatedButton(
         style: ButtonStyle(
           shape: const MaterialStatePropertyAll(BeveledRectangleBorder()),
-          backgroundColor: MaterialStateProperty.all(bgColor ??  Color.fromARGB(255, 38, 17, 111)),
-          foregroundColor: MaterialStateProperty.all(fgColor ?? Colors.white),
+         // backgroundColor: MaterialStateProperty.all(bgColor ??  Color.fromARGB(255, 38, 17, 111)),
+          foregroundColor: MaterialStateProperty.all(fgColor ?? const Color.fromARGB(255, 8, 5, 5)),
         ),
         onPressed: onPressed,
         child: Text(name,
@@ -45,15 +45,15 @@ class ButtonWidgets {
     return Container(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
-        border: Border.all(color:  Color.fromARGB(255, 38, 17, 111), width: 2),
+        border: Border.all(color:  Color.fromARGB(255, 5, 5, 5), width: 2),
       ),
       height: height ?? size.height,
       width: width ?? size.width,
       child: ElevatedButton(
         style: ButtonStyle(
           shape: const MaterialStatePropertyAll(BeveledRectangleBorder()),
-          backgroundColor: MaterialStateProperty.all(bgColor ?? Color.fromARGB(255, 38, 17, 111)),
-          foregroundColor: MaterialStateProperty.all(fgColor ?? Colors.white),
+          backgroundColor: MaterialStateProperty.all(bgColor ?? Color.fromARGB(255, 2, 2, 3)),
+          foregroundColor: MaterialStateProperty.all(fgColor ?? const Color.fromARGB(255, 9, 7, 7)),
         ),
         onPressed: onPressed,
         child: Text(name,
@@ -72,14 +72,14 @@ class ButtonWidgets {
     return Container(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
-        border: Border.all(color:  Color.fromARGB(255, 38, 17, 111), width: 2),
+        border: Border.all(color:  Color.fromARGB(255, 7, 7, 8), width: 2),
       ),
       height: size.height * .08,
       width: size.width * double.infinity,
       child: ElevatedButton.icon(
         style: ButtonStyle(
           shape: const MaterialStatePropertyAll(BeveledRectangleBorder()),
-          backgroundColor: MaterialStateProperty.all( Color.fromARGB(255, 38, 17, 111)),
+          backgroundColor: MaterialStateProperty.all( Color.fromARGB(255, 3, 3, 4)),
           foregroundColor: MaterialStateProperty.all(Colors.white),
         ),
         onPressed: onPressed,
@@ -88,4 +88,5 @@ class ButtonWidgets {
       ),
     );
   }
+
 }

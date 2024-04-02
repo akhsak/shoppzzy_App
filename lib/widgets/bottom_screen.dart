@@ -91,7 +91,7 @@ class BottomScreen extends StatelessWidget {
 
   final List<Widget> screens = [
     HomePage(),
-    const AddPage(),
+    Addpage(),
   //  const WishlistPage(),
     const SettingsPage(),
   ];
@@ -99,7 +99,7 @@ class BottomScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<BottomProvider>(
+      body: Consumer<WidgetProvider>(
         builder: (context, value, child) => screens[value.currentIndex],
       ),
       bottomNavigationBar: BottomAppBar(
@@ -120,7 +120,7 @@ class BottomScreen extends StatelessWidget {
   }
 
   Widget _BottomNavItem(IconData icon, String label, int index, BuildContext context) {
-    final bottomProvider = Provider.of<BottomProvider>(context);
+    final bottomProvider = Provider.of<WidgetProvider>(context);
     final isSelected = bottomProvider.currentIndex == index;
     final color = isSelected ? Colors.green : Colors.black;
 

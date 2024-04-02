@@ -16,7 +16,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final authProvider =
         Provider.of<AuthenticationProvider>(context, listen: false);
-    final bottomProvider = Provider.of<BottomProvider>(context, listen: false);
+    final bottomProvider = Provider.of<WidgetProvider>(context, listen: false);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Padding(

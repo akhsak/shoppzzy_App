@@ -83,9 +83,12 @@ class AuthenticationService {
       UserCredential user =
           await firebaseAuth.signInWithProvider(githubAuthProvider);
       User gitUser = user.user!;
-      final UserModal userData = UserModal(
+      final UserModel userData = UserModel(
+        profilePic:gitUser.photoURL ,
+        address: gitUser.toString(),
+        phoneNumber: gitUser.phoneNumber,
           uId: gitUser.uid,
-          userName: gitUser.displayName,
+          name: gitUser.displayName,
           email: gitUser.email);
       firestore.collection('user').doc(gitUser.uid).set(userData.toJson());
       return user;

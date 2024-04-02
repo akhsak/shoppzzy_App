@@ -149,13 +149,13 @@ class HomePage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  height: 155,
+                                  height: 159,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: AssetImage(
                                         images[index]['image'],
                                       ),
-                                      fit: BoxFit.fill,
+                                      fit: BoxFit.cover,
                                     ),
                                     // borderRadius: BorderRadius.circular(10), // Add border radius
                                   ),

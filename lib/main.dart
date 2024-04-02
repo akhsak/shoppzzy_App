@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/authontication_provider.dart';
 import 'package:olx_app_firebase/controller/bottom_provider.dart';
+import 'package:olx_app_firebase/controller/product_provider.dart';
+import 'package:olx_app_firebase/controller/user_provider.dart';
 import 'package:olx_app_firebase/firebase_options.dart';
 import 'package:olx_app_firebase/view/welcome_screen.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(providers: [
       ChangeNotifierProvider(create: (context) => AuthenticationProvider(),),
-      ChangeNotifierProvider(create:(context) => BottomProvider(),)
+      ChangeNotifierProvider(create:(context) => WidgetProvider(),),
+      ChangeNotifierProvider(create: (context)=>UserProvider()),
+      ChangeNotifierProvider(create: (context)=>DatabaseProvider())
      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
