@@ -1,19 +1,17 @@
-// ignore_for_file: must_be_immutable, use_build_context_synchronously
+
 
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/authontication_provider.dart';
-import 'package:olx_app_firebase/view/authontication_screen.dart/register_page.dart';
+import 'package:olx_app_firebase/view/authontication_screen.dart/signup_page.dart';
 import 'package:olx_app_firebase/view/authontication_screen.dart/widgets/login_widgtets.dart';
 import 'package:olx_app_firebase/widgets/bottom_screen.dart';
-import 'package:olx_app_firebase/widgets/button_widget.dart';
 import 'package:olx_app_firebase/widgets/snackbar_widget.dart';
 import 'package:olx_app_firebase/widgets/text_formfield.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
 import 'package:provider/provider.dart';
 
-
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +30,28 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(top: size.height * .0001, left: 15, right: 15),
+        padding: EdgeInsets.only(top: size.height * .05, left: 15, right: 15),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+           // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/RoadWay.png'),
+              // Welcome Text
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Text(
+                  'Welcome!',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                
+                
+              ),
+              textPoppins(name:'sign in to continue',
+               ),
               SizedBox(
                 height: size.height * 0.5,
                 child: Form(
@@ -46,54 +59,73 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      CustomTextFormField(
-                        labelText: 'Email',
-                        controller: authProvider.loginEmailController,
-                        validateMsg: 'Enter Your E-mail',
+                      Container(
+                        // decoration: BoxDecoration(
+                        //   borderRadius: BorderRadius.circular(10),
+                        // ),
+                        child: CustomTextFormField(
+                          prefixIcon: Icon(Icons.email, color: Colors.black),
+                          labelText: 'Email',
+                          controller: authProvider.loginEmailController,
+                          validateMsg: 'Enter Your E-mail',
+                        ),
                       ),
-                      Consumer<AuthenticationProvider>(
-                        builder: (context, value, child) => CustomTextFormField(
-                          labelText: 'Password',
-                          controller: authProvider.loginPasswordController,
-                          obscureText: value.obscureText,
-                          validateMsg: 'Enter Your Password',
-                          suffixIcon: IconButton(
-                            icon: Icon(value.obscureText
-                                ? Icons.visibility_off_outlined
-                                : Icons.visibility_outlined),
-                            onPressed: () {
-                              value.obscureChange();
-                            },
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Consumer<AuthenticationProvider>(
+                          builder: (context, value, child) =>
+                              CustomTextFormField(
+                            prefixIcon: Icon(Icons.lock, color: Colors.black),
+                            labelText: 'Password',
+                            controller: authProvider.loginPasswordController,
+                            obscureText: value.obscureText,
+                            validateMsg: 'Enter Your Password',
+                            suffixIcon: IconButton(
+                              icon: Icon(value.obscureText
+                                  ? Icons.visibility_off_outlined
+                                  : Icons.visibility_outlined),
+                              onPressed: () {
+                                value.obscureChange();
+                              },
+                            ),
                           ),
                         ),
                       ),
-                      ButtonWidgets().rectangleButton(size, name: 'L O G I N',
-                          onPressed: () async {
-                        if (authProvider.loginFormkey.currentState!
-                            .validate()) {
-                          try 
-                           {
-                            
-                            await authProvider.loginUser(
-                                authProvider.loginEmailController.text,
-                                authProvider.loginPasswordController.text);
+                      // Customized Button
+                      ElevatedButton(
+                        onPressed: () async {
+                          if (authProvider.loginFormkey.currentState!
+                              .validate()) {
+                            try {
+                              await authProvider.loginUser(
+                                  authProvider.loginEmailController.text,
+                                  authProvider.loginPasswordController.text);
 
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => BottomScreen()),
-                                (route) => false);
-                            SnackBarWidget().showSuccessSnackbar(
-                                context, 'login successfull');
-                            authProvider.clearLoginControllers();
-                          } catch (e) {
-                            SnackBarWidget().showErrorSnackbar(
-                                context, 'Email or Password is incorrect');
+                              Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => BottomScreen()),
+                                  (route) => false);
+                              SnackBarWidget().showSuccessSnackbar(
+                                  context, 'login successfull');
+                              authProvider.clearLoginControllers();
+                            } catch (e) {
+                              SnackBarWidget().showErrorSnackbar(
+                                  context, 'Email or Password is incorrect');
+                            }
                           }
-                        }
-                      },
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Color.fromARGB(255, 38, 17, 111), width: 3)),
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.black),
+                        ),
+                        child: Text(
+                          'L O G I N',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 50),
                         child: Row(
@@ -118,11 +150,11 @@ class LoginScreen extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => RegisterScreen()));
+                              builder: (context) => SignUpScreen()));
                       authProvider.clearLoginControllers();
                     },
                     child: textAbel(
-                        name: 'Register Now',
+                        name: 'SIGN UP',
                         color: Colors.blueAccent[400],
                         fontsize: 17,
                         fontweight: FontWeight.w700),

@@ -9,9 +9,9 @@ import 'package:olx_app_firebase/widgets/text_formfield.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
 import 'package:provider/provider.dart';
 
-class RegisterScreen extends StatelessWidget {
+class SignUpScreen extends StatelessWidget {
   bool isLoading = false;
-  RegisterScreen({super.key});
+  SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +34,22 @@ class RegisterScreen extends StatelessWidget {
                         authProvider.clearRegisterControllers();
                       },
                       icon: const Icon(Icons.arrow_back_ios_new_rounded)),
-                  SizedBox(width: size.width * .07),
-                  textPoppins(
-                    name: 'olx Register',
-                    fontsize: 25,
-                    fontweight: FontWeight.w600,
-                  ),
+               
                 ],
               ),
-              SizedBox(height: size.height * .1),
+              textPoppins(
+                name: 'Hi !',
+                fontsize: 30,
+                fontweight: FontWeight.bold
+
+              ),
+               textPoppins(
+                name: 'create a new account',
+                fontsize: 20,
+                
+
+              ),
+             // SizedBox(height: size.height * .1),
               SizedBox(
                 height: size.height * .5,
                 child: Form(
@@ -51,6 +58,7 @@ class RegisterScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomTextFormField(
+                         prefixIcon: Icon(Icons.email,color: Colors.black),
                         labelText: 'Email',
                         controller: authProvider.registerEmailController,
                         validateMsg: 'Enter a Email',
@@ -60,6 +68,7 @@ class RegisterScreen extends StatelessWidget {
                         return Column(
                           children: [
                             CustomTextFormField(
+                               prefixIcon: Icon(Icons.lock,color: Colors.black),
                               labelText: 'Password',
                               controller:
                                   authProvider.registerPasswordController,
@@ -76,6 +85,7 @@ class RegisterScreen extends StatelessWidget {
                             ),
                             SizedBox(height: size.height * .035),
                             CustomTextFormField(
+                              prefixIcon: Icon(Icons.lock,color: Colors.black),
                               labelText: 'Confirm password',
                               controller:
                                   authProvider.confirmPasswordController,
@@ -87,7 +97,7 @@ class RegisterScreen extends StatelessWidget {
                       }),
                       ButtonWidgets().rectangleButton(
                         size,
-                        name: 'Register',
+                        name: 'Sign Up',
                         onPressed: () async {
                           if (authProvider.registerFormkey.currentState!
                               .validate()) {
