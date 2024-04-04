@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/authontication_provider.dart';
 import 'package:olx_app_firebase/controller/bottom_provider.dart';
-import 'package:olx_app_firebase/controller/product_provider.dart';
+import 'package:olx_app_firebase/controller/provider_home.dart';
 import 'package:olx_app_firebase/controller/user_provider.dart';
 import 'package:olx_app_firebase/firebase_options.dart';
 import 'package:olx_app_firebase/view/welcome_screen.dart';
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       ChangeNotifierProvider(create: (context) => AuthenticationProvider(),),
       ChangeNotifierProvider(create:(context) => WidgetProvider(),),
       ChangeNotifierProvider(create: (context)=>UserProvider()),
-      ChangeNotifierProvider(create: (context)=>DatabaseProvider())
+      ChangeNotifierProvider(create: (context)=>ProductProvider())
      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
