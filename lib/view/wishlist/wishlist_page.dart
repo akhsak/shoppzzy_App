@@ -60,7 +60,7 @@ class WishListPage extends StatelessWidget {
                     itemCount: wishlistItems.length,
                     itemBuilder: (context, index) {
                       final item = wishlistItems[index];
-                      return HomeCarContainer(
+                      return HomeContainer(
                         value: carProvider,
                         product: item,
                       );

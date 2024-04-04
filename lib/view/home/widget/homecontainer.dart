@@ -6,12 +6,12 @@ import 'package:olx_app_firebase/model/model.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
 import 'package:provider/provider.dart';
 
-class HomeCarContainer extends StatelessWidget {
+class HomeContainer extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
   final ProductModel product;
   final ProductProvider value;
 
-  const HomeCarContainer({
+  const HomeContainer({
     super.key,
     required this.value,
     required this.product,
@@ -21,7 +21,7 @@ class HomeCarContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
    
-    final carProvider = Provider.of<ProductProvider>(context, listen: false);
+    //final carProvider = Provider.of<ProductProvider>(context, listen: false);
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(

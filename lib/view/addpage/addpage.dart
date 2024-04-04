@@ -12,7 +12,6 @@ import 'package:olx_app_firebase/controller/provider_home.dart';
 import 'package:olx_app_firebase/model/model.dart';
 import 'package:olx_app_firebase/view/home/newhome.dart';
 import 'package:olx_app_firebase/widgets/button.dart';
-import 'package:olx_app_firebase/widgets/pop_up.dart';
 import 'package:olx_app_firebase/widgets/snackbar_widget.dart';
 import 'package:olx_app_firebase/widgets/text_file.dart';
 import 'package:provider/provider.dart';
@@ -115,13 +114,7 @@ class Addpage extends StatelessWidget {
                     // }
                       if (prdctProvider.productDataFormKey.currentState!
                                         .validate()) {
-                                           bool value = await PopupWidgets().showConfirmationDialog(
-                            context,
-                            title: "Warning",
-                            content:
-                                """Create your profile once; you can't edit or delete your account. Please verify all data for accuracy.""",
-                            label: 'Set Profile');
-                            
+                                          
                                           log('aaaaaaaaaaaaaaa');
                                       await addData(context, prdctProvider);
                                       Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>HomeScreen()));
@@ -210,7 +203,7 @@ class Addpage extends StatelessWidget {
 
       prdctProvider.clearProductControllers();
 
-       SnackBarWidget().showSuccessSnackbar(context, 'Car Added Successfully');
+      SnackBarWidget().showSuccessSnackbar(context, 'Car Added Successfully');
     } else {
       SnackBarWidget()
           .showSuccessSnackbar(context, 'Failed to Add try once more');

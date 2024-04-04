@@ -10,7 +10,17 @@ import 'package:olx_app_firebase/widgets/text_style.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
+
+    final List<Map<String, dynamic>> categories = [
+    {'name': 'T-Shirt', 'image': 'assets/T-shirtt_img.jpg'},
+    {'name': 'Pants', 'image': 'assets/pants_img.jpg'},
+    {'name': 'Dress', 'image': 'assets/dress__img.jpg'},
+    {'name': 'Jackets', 'image': 'assets/jackets_img.jpg'},
+    {'name': 'Shoes', 'image': 'assets/shoes_img.jpg'},
+    {'name': 'Bag', 'image': 'assets/bag_img.jpg'},
+    
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -65,98 +75,102 @@ class HomeScreen extends StatelessWidget {
         ],
         // IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border_outlined)),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: Consumer<ProductProvider>(
-                builder: (context, productValue, child) {
-                  if (productValue.isLoading) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else if (productValue.searchList.isEmpty &&
-                      productValue.searchController.text.isNotEmpty) {
-                    return Center(
-                        child: Center(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Column(
-                          children: [
-                            Lottie.asset('assets/no available cars.json'),
-                            textPoppins(name: 'SEARCHED CAR IS NOT AVAILABLE')
-                          ],
+      body:
+      
+       Container(
+         child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              Expanded(
+                child: Consumer<ProductProvider>(
+                  builder: (context, productValue, child) {
+                    if (productValue.isLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else if (productValue.searchList.isEmpty &&
+                        productValue.searchController.text.isNotEmpty) {
+                      return Center(
+                          child: Center(
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: Column(
+                            children: [
+                              Lottie.asset('assets/no available cars.json'),
+                              textPoppins(name: 'SEARCHED CAR IS NOT AVAILABLE')
+                            ],
+                          ),
                         ),
-                      ),
-                    ));
-                  } else if (productValue.searchList.isEmpty) {
-                    if (productValue.allCarList.isNotEmpty) {
-                      final allCar = productValue.allCarList;
+                      ));
+                    } else if (productValue.searchList.isEmpty) {
+                      if (productValue.allCarList.isNotEmpty) {
+                        final allCar = productValue.allCarList;
+                        return GridView.builder(
+                          gridDelegate: gridDelegate(size.width * 0.0018),
+                          itemCount: allCar.length,
+                          itemBuilder: (context, index) {
+                            final products = allCar[index];
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailsPage(
+                                      name: products.name,
+                                      description: products.description,
+                                      location: products.location,
+                                      price: products.price,
+                                      image: NetworkImage(products.image.toString()),
+                                      category: products.category,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: HomeContainer(
+                                value: productProvider,
+                                product: products,
+                              ),
+                            );
+                          },
+                        );
+                      } else {
+                        return Center(
+                          child: textAbel(
+                              name: ' No product Added',
+                              fontsize: 20,
+                              fontweight: FontWeight.w700),
+                        );
+                      }
+                    } else {
                       return GridView.builder(
                         gridDelegate: gridDelegate(size.width * 0.0018),
-                        itemCount: allCar.length,
+                        itemCount: productValue.searchList.length,
                         itemBuilder: (context, index) {
-                          final products = allCar[index];
+                          final car = productValue.searchList[index];
+         
                           return GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => DetailsPage(
-                                    name: products.name,
-                                    description: products.description,
-                                    location: products.location,
-                                    price: products.price,
-                                    image: NetworkImage(products.image.toString()),
-                                    category: products.category,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const DetailsPage(),
                                   ),
-                                ),
-                              );
-                            },
-                            child: HomeCarContainer(
-                              value: productProvider,
-                              product: products,
-                            ),
-                          );
+                                );
+                              },
+                              child: HomeContainer(
+                                value: productProvider,
+                                product: car,
+                              ));
                         },
                       );
-                    } else {
-                      return Center(
-                        child: textAbel(
-                            name: ' No product Added',
-                            fontsize: 20,
-                            fontweight: FontWeight.w700),
-                      );
                     }
-                  } else {
-                    return GridView.builder(
-                      gridDelegate: gridDelegate(size.width * 0.0018),
-                      itemCount: productValue.searchList.length,
-                      itemBuilder: (context, index) {
-                        final car = productValue.searchList[index];
-
-                        return GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const DetailsPage(),
-                                ),
-                              );
-                            },
-                            child: HomeCarContainer(
-                              value: productProvider,
-                              product: car,
-                            ));
-                      },
-                    );
-                  }
-                },
+                  },
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+               ),
+       ),
       // floatingActionButton: authProvider.isAdminHome
       //     ? FloatingActionButton.extended(
       //         onPressed: () {
