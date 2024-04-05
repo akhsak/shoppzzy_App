@@ -6,9 +6,9 @@ class AuthenticationProvider extends ChangeNotifier {
   TextEditingController adminController = TextEditingController();
   TextEditingController adminPassController = TextEditingController();
   TextEditingController loginEmailController = TextEditingController();
-  TextEditingController registerEmailController = TextEditingController();
+  TextEditingController signupEmailController = TextEditingController();
   TextEditingController loginPasswordController = TextEditingController();
-  TextEditingController registerPasswordController = TextEditingController();
+  TextEditingController signupPasswordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController otpController = TextEditingController();
@@ -16,7 +16,7 @@ class AuthenticationProvider extends ChangeNotifier {
   bool isLoading = false;
   bool isAdminHome = false;
   final loginFormkey = GlobalKey<FormState>();
-  final registerFormkey = GlobalKey<FormState>();
+  final signupFormkey = GlobalKey<FormState>();
   final otpFormKey = GlobalKey<FormState>();
   final adminFormkey = GlobalKey<FormState>();
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -36,14 +36,14 @@ class AuthenticationProvider extends ChangeNotifier {
     loginPasswordController.clear();
   }
 
-  void clearRegisterControllers() {
-    registerEmailController.clear();
-    registerPasswordController.clear();
+  void clearSignupControllers() {
+    signupEmailController.clear();
+    signupPasswordController.clear();
     confirmPasswordController.clear();
   }
 
-  Future<UserCredential> registerUser(String email, String password) async {
-    return await authService.userEmailRegister(email, password);
+  Future<UserCredential> signupUser(String email, String password) async {
+    return await authService.userEmailSignup(email, password);
   }
 
   Future<UserCredential> loginUser(String email, String password) async {
@@ -64,15 +64,7 @@ class AuthenticationProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> gitHubSignIn() async {
-    try {
-      await authService.gitHubSignIn();
-    } catch (e) {
-      throw Exception('Exception $e');
-    }
-    notifyListeners();
-  }
-
+ 
   void obscureChange() {
     obscureText = !obscureText;
     notifyListeners();

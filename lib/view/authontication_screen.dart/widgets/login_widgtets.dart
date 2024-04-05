@@ -32,23 +32,7 @@ class LoginWidgets {
           ),
         ),
         SizedBox(width: size.width * .06),
-        // SizedBox(
-        //   height: size.height * .0344,
-        //   width: size.width * .073,
-        //   child: InkWell(
-        //     onTap: () async {
-        //       await authProvider.gitHubSignIn();
-        //       Navigator.pushAndRemoveUntil(
-        //           context,
-        //           MaterialPageRoute(builder: (context) => BottomScreen()),
-        //           (route) => false);
-        //     },
-        //     child: const Image(
-        //         fit: BoxFit.cover,
-        //         image: NetworkImage(
-        //             'https://cdn-icons-png.flaticon.com/512/25/25231.png')),
-        //   ),
-        // ),
+       
         SizedBox(width: size.width * .06),
         SizedBox(
           height: size.height * .0344,

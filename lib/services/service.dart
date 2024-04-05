@@ -4,7 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:olx_app_firebase/model/model.dart';
+import 'package:olx_app_firebase/model/product_model.dart';
 
 class ProductService {
   String products = 'product';
@@ -39,7 +39,7 @@ class ProductService {
     }
   }
 
-  Future<List<ProductModel>> getAllCars() async {
+  Future<List<ProductModel>> getAllProducts() async {
     final snapshot = await product.get();
     return snapshot.docs.map((doc) => doc.data()).toList();
   }

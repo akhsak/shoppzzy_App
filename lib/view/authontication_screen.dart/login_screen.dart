@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/authontication_provider.dart';
 import 'package:olx_app_firebase/view/authontication_screen.dart/signup_page.dart';
@@ -34,7 +32,7 @@ class LoginScreen extends StatelessWidget {
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
-           // crossAxisAlignment: CrossAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Welcome Text
               Padding(
@@ -47,11 +45,10 @@ class LoginScreen extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                
-                
               ),
-              textPoppins(name:'sign in to continue',
-               ),
+              textPoppins(
+                name: 'sign in to continue',
+              ),
               SizedBox(
                 height: size.height * 0.5,
                 child: Form(

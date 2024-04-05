@@ -19,7 +19,6 @@ class WelcomeScreen extends StatelessWidget {
               image: DecorationImage(
                 image: AssetImage('assets/welcome.jpg',),
                 
-               // fit: BoxFit.contain,
                 
               ),
             ),

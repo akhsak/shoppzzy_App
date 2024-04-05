@@ -81,8 +81,7 @@
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/bottom_provider.dart';
 import 'package:olx_app_firebase/view/addpage/addpage.dart';
-import 'package:olx_app_firebase/view/home/home_page.dart';
-import 'package:olx_app_firebase/view/home/newhome.dart';
+import 'package:olx_app_firebase/view/home/home.dart';
 import 'package:olx_app_firebase/view/settings/settings_page.dart';
 import 'package:olx_app_firebase/view/wishlist/wishlist_page.dart';
 import 'package:provider/provider.dart';

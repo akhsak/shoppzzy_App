@@ -11,7 +11,7 @@ class UserProvider extends ChangeNotifier {
   TextEditingController addressController = TextEditingController();
   String downloadURL = '';
   // bool? isEdit;
-  String imageName = DateTime.now().millisecondsSinceEpoch.toString();
+ String imageName = DateTime.now().millisecondsSinceEpoch.toString();
   List<UserModel> allUserDatas = [];
 
   Future<void> getUserData() async {

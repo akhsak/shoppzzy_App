@@ -1,45 +1,11 @@
-// import 'package:flutter/material.dart';
 
-// class DetailsPage extends StatelessWidget {
-//   const DetailsPage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Scaffold(
-//       body: Column(
-//         children: [
-//           Padding(
-//             padding: EdgeInsets.only(top: 80.0, left: 10, right: 20),
-//             child: Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children: [
-//                 Icon(Icons.arrow_back_ios),
-//                 Row(
-//                   children: [
-//                     Icon(
-//                       Icons.favorite,
-//                       color: Colors.red,
-//                     )
-//                   ],
-//                 )
-//               ],
-//             ),
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:olx_app_firebase/controller/provider_home.dart';
-import 'package:olx_app_firebase/model/model.dart';
-import 'package:olx_app_firebase/widgets/normal_widget.dart';
-import 'package:provider/provider.dart';
+
 
 class DetailsPage extends StatelessWidget {
   
@@ -62,7 +28,6 @@ class DetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final Productprovider = Provider.of<ProductProvider>(context, listen: false);
 
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -77,22 +42,7 @@ class DetailsPage extends StatelessWidget {
                 },
                 icon: const Icon(Icons.arrow_back_ios)),
                 
-              // IconButton(
-              //           onPressed: () {
-              //             alertSheet(context, onPressed: () {
-                             
-              //               var product;
-              //               Productprovider.deleteCar(product.id!);
-              //               Navigator.pop(context);
-
-              //             },
-              //                 alertMessage: 'Are You Sure To Delete The Car',
-              //                 confirmButtonLabel: 'DELETE');
-              //           },
-              //           icon: const Icon(
-              //             Icons.delete,
-              //             color: Colors.red,
-              //           )),
+             
             SizedBox(height: size.height * .01),
             Center(
               child: Padding(

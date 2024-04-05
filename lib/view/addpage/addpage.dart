@@ -11,8 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:olx_app_firebase/controller/provider_home.dart';
-import 'package:olx_app_firebase/model/model.dart';
-import 'package:olx_app_firebase/view/home/newhome.dart';
+import 'package:olx_app_firebase/model/product_model.dart';
+import 'package:olx_app_firebase/view/home/home.dart';
 import 'package:olx_app_firebase/widgets/bottom_screen.dart';
 import 'package:olx_app_firebase/widgets/button.dart';
 import 'package:olx_app_firebase/widgets/snackbar_widget.dart';
@@ -197,7 +197,7 @@ class Addpage extends StatelessWidget {
         description: prdctProvider.descriptionController.text,
         price: int.parse(prdctProvider.priceController.text),
         location: prdctProvider.locationController.text,
-        category: prdctProvider.categoryController.text,
+        brand: prdctProvider.categoryController.text,
         image: image,
         wishList: [],
       );

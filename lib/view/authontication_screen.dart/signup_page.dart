@@ -31,7 +31,7 @@ class SignUpScreen extends StatelessWidget {
                   IconButton(
                       onPressed: () {
                         Navigator.pop(context);
-                        authProvider.clearRegisterControllers();
+                        authProvider.clearSignupControllers();
                       },
                       icon: const Icon(Icons.arrow_back_ios_new_rounded)),
                
@@ -53,14 +53,14 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(
                 height: size.height * .5,
                 child: Form(
-                  key: authProvider.registerFormkey,
+                  key: authProvider.signupFormkey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomTextFormField(
                          prefixIcon: Icon(Icons.email,color: Colors.black),
                         labelText: 'Email',
-                        controller: authProvider.registerEmailController,
+                        controller: authProvider.signupEmailController,
                         validateMsg: 'Enter a Email',
                       ),
                       Consumer<AuthenticationProvider>(
@@ -71,7 +71,7 @@ class SignUpScreen extends StatelessWidget {
                                prefixIcon: Icon(Icons.lock,color: Colors.black),
                               labelText: 'Password',
                               controller:
-                                  authProvider.registerPasswordController,
+                                  authProvider.signupPasswordController,
                               validateMsg: 'Enter a New Password',
                               obscureText: value.obscureText,
                               suffixIcon: IconButton(
@@ -99,23 +99,23 @@ class SignUpScreen extends StatelessWidget {
                         size,
                         name: 'Sign Up',
                         onPressed: () async {
-                          if (authProvider.registerFormkey.currentState!
+                          if (authProvider.signupFormkey.currentState!
                               .validate()) {
                             try {
                               if (authProvider
-                                      .registerPasswordController.text ==
+                                      .signupPasswordController.text ==
                                   authProvider.confirmPasswordController.text) {
-                                await authProvider.registerUser(
-                                    authProvider.registerEmailController.text,
+                                await authProvider.signupUser(
+                                    authProvider.signupEmailController.text,
                                     authProvider
-                                        .registerPasswordController.text);
+                                        .signupPasswordController.text);
 
                                 Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => BottomScreen()));
 
-                                authProvider.clearRegisterControllers();
+                                authProvider.clearSignupControllers();
                                 SnackBarWidget().showSuccessSnackbar(
                                     context, 'Registeration success');
                               } else {
@@ -140,7 +140,7 @@ class SignUpScreen extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       Navigator.pop(context);
-                      authProvider.clearRegisterControllers();
+                      authProvider.clearSignupControllers();
                     },
                     child: textAbel(
                         name: 'Login Now',

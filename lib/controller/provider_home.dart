@@ -5,7 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:olx_app_firebase/model/model.dart';
+import 'package:olx_app_firebase/model/product_model.dart';
 import 'package:olx_app_firebase/services/service.dart';
 
 class ProductProvider extends ChangeNotifier {
@@ -34,20 +34,6 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Future<void> selectDate(BuildContext context) async {
-  //   final DateTime? pickedDate = await showDatePicker(
-  //     context: context,
-  //     initialDate: DateTime.now(),
-  //     firstDate: DateTime.now(),
-  //     lastDate: DateTime(2101),
-  //   );
-
-  //   if (pickedDate != null) {
-  //     categoryController.text = DateFormat('dd-MM-yyyy').format(pickedDate);
-  //   }
-  //   notifyListeners();
-  // }
-
   void clearProductControllers() {
     productNameController.clear();
     locationController.clear();
@@ -71,7 +57,7 @@ class ProductProvider extends ChangeNotifier {
 
   void getAllCar() async {
     isLoading = true;
-    allCarList = await productService.getAllCars();
+    allCarList = await productService.getAllProducts();
     isLoading = false;
     notifyListeners();
   }

@@ -27,26 +27,21 @@ class HomeScreen extends StatelessWidget {
     final productProvider = Provider.of<ProductProvider>(context, listen: false);
     Size size = MediaQuery.of(context).size;
     Provider.of<ProductProvider>(context, listen: false).getAllCar();
-    final authProvider =
+    
         Provider.of<AuthenticationProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         
-       // automaticallyImplyLeading: false,
         backgroundColor: Color.fromARGB(255, 241, 242, 244),
         toolbarHeight: 170,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          //  textPoppins(
-          //           name: 'Find Your Perfect',
-          //           color: const Color(0xFFCADCFC),
-          //           fontsize: 25,
-          //           fontweight: FontWeight.w700),
+
             Row(
               children: [
                 textPoppins(
-                    name: 'shopping',
+                    name: 'shoppzzy',
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontsize: 25,
                     fontweight: FontWeight.w700),
@@ -73,7 +68,6 @@ class HomeScreen extends StatelessWidget {
             child: Icon(Icons.favorite_border_outlined),
           ),iconSize:30,),
         ],
-        // IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border_outlined)),
       ),
       body:
       
@@ -95,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                           scrollDirection: Axis.vertical,
                           child: Column(
                             children: [
-                              Lottie.asset('assets/no available cars.json'),
+                              Image.asset('assets/serch empty.jpg'),
                               textPoppins(name: 'SEARCHED CAR IS NOT AVAILABLE')
                             ],
                           ),
@@ -120,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                                       location: products.location,
                                       price: products.price,
                                       image: NetworkImage(products.image.toString()),
-                                      category: products.category,
+                                      category: products.brand,
                                     ),
                                   ),
                                 );
@@ -171,21 +165,7 @@ class HomeScreen extends StatelessWidget {
           ),
                ),
        ),
-      // floatingActionButton: authProvider.isAdminHome
-      //     ? FloatingActionButton.extended(
-      //         onPressed: () {
-      //           Navigator.push(
-      //               context,
-      //               MaterialPageRoute(
-      //                   builder: (context) => const AdminAddDataScreen()));
-      //         },
-      //         label: textPoppins(
-      //             name: 'ADD CAR',
-      //             color: const Color(0xFFCADCFC),
-      //             fontweight: FontWeight.w700),
-      //         backgroundColor: const Color(0xFF00246B),
-      //       )
-      //     : null,
+  
     );
   }
 }
