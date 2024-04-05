@@ -27,12 +27,7 @@ class SelectLoginScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 30), // Add space
                 Container(
-                    // height: size.height * 1,
-                    // width: size.width * 1,
-                    // decoration: const BoxDecoration(
-                    //     image: DecorationImage(
-                    //         image: AssetImage('assets/welcome.jpg'),
-                    //         fit:BoxFit.contain)),
+                   
                     ),
                 Image.asset('assets/Free Vector.jpg'),
                 const Text(
@@ -44,10 +39,10 @@ class SelectLoginScreen extends StatelessWidget {
                   "Welcome to our app. Please select your option below:", // Add additional text
                   style: TextStyle(fontSize: 16),
                 ),
-                // SizedBox(height: 30), // Add space
-                // Image.asset('assets/select_img.jpg'),
+               
                 const SizedBox(height: 30), // Add space
                 ElevatedButton(
+                  
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.black, // text color
@@ -80,39 +75,39 @@ class SelectLoginScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20), // Add space
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.black, // text color
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            SignUpScreen(), // Navigate to SignUpScreen
-                      ),
-                    );
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          Icons.person_add_outlined,
-                          size: 20,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          'SignUp',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                // ElevatedButton(
+                //   style: ElevatedButton.styleFrom(
+                //     foregroundColor: Colors.white,
+                //     backgroundColor: Colors.black, // text color
+                //   ),
+                //   onPressed: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //         builder: (context) =>
+                //             SignUpScreen(), // Navigate to SignUpScreen
+                //       ),
+                //     );
+                //   },
+                //   child: const Padding(
+                //     padding: EdgeInsets.all(8.0),
+                //     child: Row(
+                //       mainAxisSize: MainAxisSize.min,
+                //       children: [
+                //         Icon(
+                //           Icons.person_add_outlined,
+                //           size: 20,
+                //           color: Colors.white,
+                //         ),
+                //         SizedBox(width: 10),
+                //         Text(
+                //           'SignUp',
+                //           style: TextStyle(color: Colors.white, fontSize: 20),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),

@@ -51,9 +51,10 @@ class WelcomeScreen extends StatelessWidget {
           ),
          
           Positioned(
-            bottom: 180,
-            left: 15,
-            right: 15,
+           bottom: 180,
+           height: 50,
+           left: 100,
+            right: 100,
             child: ElevatedButton(
               onPressed: () {
                 Navigator.pushReplacement(
