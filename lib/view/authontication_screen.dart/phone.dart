@@ -30,8 +30,7 @@ class PhoneScreen extends StatelessWidget {
               height: size.height * .4,
               width: size.width * .8,
               child:
-              Image.asset('')
-              // Lottie.asset('assets/otp.json', fit: BoxFit.cover),
+              Image.asset('assets/mobile otp verify.jpg')
             ),
           ),
           SizedBox(height: size.height * .07),

@@ -2,6 +2,8 @@
 
 
 
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 import 'dart:io';
 
@@ -11,6 +13,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:olx_app_firebase/controller/provider_home.dart';
 import 'package:olx_app_firebase/model/model.dart';
 import 'package:olx_app_firebase/view/home/newhome.dart';
+import 'package:olx_app_firebase/widgets/bottom_screen.dart';
 import 'package:olx_app_firebase/widgets/button.dart';
 import 'package:olx_app_firebase/widgets/snackbar_widget.dart';
 import 'package:olx_app_firebase/widgets/text_file.dart';
@@ -22,13 +25,11 @@ class Addpage extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-   // final widgetProvider = Provider.of<WidgetProvider>(context, listen: false);
     final prdctProvider = Provider.of<ProductProvider>(context, listen: false);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: const Text('add profile'),
+      appBar: AppBar(title: const Text('Add items'),
      ),
-     // appBar: AppBarWidgets().appBar(context, title: 'title'),
       body: Form(
         key: prdctProvider.productDataFormKey,
         child: Padding(
@@ -117,7 +118,9 @@ class Addpage extends StatelessWidget {
                                           
                                           log('aaaaaaaaaaaaaaa');
                                       await addData(context, prdctProvider);
-                                      Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>HomeScreen()));
+                                      
+                                    // Navigator.push(context, MaterialPageRoute(builder: (context) => bot,));
+                                  Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>BottomScreen()));
                                     }
                   },
                 )

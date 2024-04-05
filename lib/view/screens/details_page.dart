@@ -36,8 +36,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:olx_app_firebase/controller/provider_home.dart';
+import 'package:olx_app_firebase/model/model.dart';
+import 'package:olx_app_firebase/widgets/normal_widget.dart';
+import 'package:provider/provider.dart';
 
 class DetailsPage extends StatelessWidget {
+  
   final name;
   final description;
   final location;
@@ -52,10 +57,13 @@ class DetailsPage extends StatelessWidget {
       this.location,
       this.price,
       this.image,
-      this.category});
+      this.category,
+      });
 
   @override
   Widget build(BuildContext context) {
+        final Productprovider = Provider.of<ProductProvider>(context, listen: false);
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Padding(
@@ -68,6 +76,23 @@ class DetailsPage extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 icon: const Icon(Icons.arrow_back_ios)),
+                
+              // IconButton(
+              //           onPressed: () {
+              //             alertSheet(context, onPressed: () {
+                             
+              //               var product;
+              //               Productprovider.deleteCar(product.id!);
+              //               Navigator.pop(context);
+
+              //             },
+              //                 alertMessage: 'Are You Sure To Delete The Car',
+              //                 confirmButtonLabel: 'DELETE');
+              //           },
+              //           icon: const Icon(
+              //             Icons.delete,
+              //             color: Colors.red,
+              //           )),
             SizedBox(height: size.height * .01),
             Center(
               child: Padding(

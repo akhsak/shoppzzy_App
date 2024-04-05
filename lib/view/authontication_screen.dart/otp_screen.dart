@@ -34,7 +34,7 @@ class OtpScreen extends StatelessWidget {
                 height: size.height * .5,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/mobile otp verify.png'),
+                        image: AssetImage('assets/phone otp.jpg'),
                         fit: BoxFit.cover)),
               ),
               Container(

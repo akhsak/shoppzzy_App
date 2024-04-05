@@ -5,7 +5,7 @@ import 'package:olx_app_firebase/view/authontication_screen.dart/signup_page.dar
 import 'package:olx_app_firebase/widgets/text_style.dart';
 
 class SelectLoginScreen extends StatelessWidget {
-  const SelectLoginScreen({Key});
+  const SelectLoginScreen({super.key, Key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class SelectLoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 30), // Add space
+                const SizedBox(height: 30), // Add space
                 Container(
                     // height: size.height * 1,
                     // width: size.width * 1,
@@ -35,18 +35,18 @@ class SelectLoginScreen extends StatelessWidget {
                     //         fit:BoxFit.contain)),
                     ),
                 Image.asset('assets/Free Vector.jpg'),
-                Text(
+                const Text(
                   "Hello", // Add Hello text
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 10), // Add space
-                Text(
+                const SizedBox(height: 10), // Add space
+                const Text(
                   "Welcome to our app. Please select your option below:", // Add additional text
                   style: TextStyle(fontSize: 16),
                 ),
                 // SizedBox(height: 30), // Add space
                 // Image.asset('assets/select_img.jpg'),
-                SizedBox(height: 30), // Add space
+                const SizedBox(height: 30), // Add space
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
@@ -60,8 +60,8 @@ class SelectLoginScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -79,7 +79,7 @@ class SelectLoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20), // Add space
+                const SizedBox(height: 20), // Add space
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
@@ -94,8 +94,8 @@ class SelectLoginScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
