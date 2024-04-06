@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/authontication_provider.dart';
 import 'package:olx_app_firebase/widgets/bottom_screen.dart';
-import 'package:olx_app_firebase/widgets/button_widget.dart';
 import 'package:olx_app_firebase/widgets/snackbar_widget.dart';
 import 'package:olx_app_firebase/widgets/text_formfield.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
@@ -26,30 +25,15 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        authProvider.clearSignupControllers();
-                      },
-                      icon: const Icon(Icons.arrow_back_ios_new_rounded)),
-               
-                ],
-              ),
               textPoppins(
                 name: 'Hi !',
                 fontsize: 30,
-                fontweight: FontWeight.bold
-
+                fontweight: FontWeight.bold,
               ),
-               textPoppins(
+              textPoppins(
                 name: 'create a new account',
                 fontsize: 20,
-                
-
               ),
-             // SizedBox(height: size.height * .1),
               SizedBox(
                 height: size.height * .5,
                 child: Form(
@@ -58,7 +42,8 @@ class SignUpScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomTextFormField(
-                         prefixIcon: Icon(Icons.email,color: Colors.black),
+                        prefixIcon:
+                            const Icon(Icons.email, color: Colors.black),
                         labelText: 'Email',
                         controller: authProvider.signupEmailController,
                         validateMsg: 'Enter a Email',
@@ -68,10 +53,10 @@ class SignUpScreen extends StatelessWidget {
                         return Column(
                           children: [
                             CustomTextFormField(
-                               prefixIcon: Icon(Icons.lock,color: Colors.black),
+                              prefixIcon:
+                                  const Icon(Icons.lock, color: Colors.black),
                               labelText: 'Password',
-                              controller:
-                                  authProvider.signupPasswordController,
+                              controller: authProvider.signupPasswordController,
                               validateMsg: 'Enter a New Password',
                               obscureText: value.obscureText,
                               suffixIcon: IconButton(
@@ -85,7 +70,8 @@ class SignUpScreen extends StatelessWidget {
                             ),
                             SizedBox(height: size.height * .035),
                             CustomTextFormField(
-                              prefixIcon: Icon(Icons.lock,color: Colors.black),
+                              prefixIcon:
+                                  const Icon(Icons.lock, color: Colors.black),
                               labelText: 'Confirm password',
                               controller:
                                   authProvider.confirmPasswordController,
@@ -95,40 +81,52 @@ class SignUpScreen extends StatelessWidget {
                           ],
                         );
                       }),
-                      ButtonWidgets().rectangleButton(
-                        size,
-                        name: 'Sign Up',
-                        onPressed: () async {
-                          if (authProvider.signupFormkey.currentState!
-                              .validate()) {
-                            try {
-                              if (authProvider
-                                      .signupPasswordController.text ==
-                                  authProvider.confirmPasswordController.text) {
-                                await authProvider.signupUser(
-                                    authProvider.signupEmailController.text,
+                      SizedBox(
+                        width: 110,
+                        height: 45,
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            if (authProvider.signupFormkey.currentState!
+                                .validate()) {
+                              try {
+                                if (authProvider
+                                        .signupPasswordController.text ==
                                     authProvider
-                                        .signupPasswordController.text);
+                                        .confirmPasswordController.text) {
+                                  await authProvider.signupUser(
+                                      authProvider.signupEmailController.text,
+                                      authProvider
+                                          .signupPasswordController.text);
 
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => BottomScreen()));
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              BottomScreen()));
 
-                                authProvider.clearSignupControllers();
-                                SnackBarWidget().showSuccessSnackbar(
-                                    context, 'Registeration success');
-                              } else {
-                                SnackBarWidget().showErrorSnackbar(
-                                    context, 'passwords does not match');
+                                  authProvider.clearSignupControllers();
+                                  SnackBarWidget().showSuccessSnackbar(
+                                      context, 'Registration success');
+                                } else {
+                                  SnackBarWidget().showErrorSnackbar(
+                                      context, 'passwords do not match');
+                                }
+                              } catch (e) {
+                                SnackBarWidget().showErrorSnackbar(context,
+                                    'Already existed E-mail or invalid E-mail');
                               }
-                            } catch (e) {
-                              SnackBarWidget().showErrorSnackbar(context,
-                                  'Already existed E-mail or invalid E-mail');
                             }
-                          }
-                        },
-                      )
+                          },
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.black),
+                          ),
+                          child: const Text(
+                            'Sign Up',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -150,18 +148,23 @@ class SignUpScreen extends StatelessWidget {
                   )
                 ],
               ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 100, top: 200),
+                child: Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          authProvider.clearSignupControllers();
+                        },
+                        icon: const Icon(Icons.arrow_back)),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  circularIndicator() {
-    if (isLoading = true) {
-      return const CircularProgressIndicator(
-        color: Color.fromARGB(255, 38, 17, 111),
-      );
-    }
   }
 }

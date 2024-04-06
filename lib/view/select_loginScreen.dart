@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/view/authontication_screen.dart/login_screen.dart';
 import 'package:olx_app_firebase/view/authontication_screen.dart/signup_page.dart';
-
 import 'package:olx_app_firebase/widgets/text_style.dart';
 
 class SelectLoginScreen extends StatelessWidget {
@@ -75,39 +74,39 @@ class SelectLoginScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20), // Add space
-                // ElevatedButton(
-                //   style: ElevatedButton.styleFrom(
-                //     foregroundColor: Colors.white,
-                //     backgroundColor: Colors.black, // text color
-                //   ),
-                //   onPressed: () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) =>
-                //             SignUpScreen(), // Navigate to SignUpScreen
-                //       ),
-                //     );
-                //   },
-                //   child: const Padding(
-                //     padding: EdgeInsets.all(8.0),
-                //     child: Row(
-                //       mainAxisSize: MainAxisSize.min,
-                //       children: [
-                //         Icon(
-                //           Icons.person_add_outlined,
-                //           size: 20,
-                //           color: Colors.white,
-                //         ),
-                //         SizedBox(width: 10),
-                //         Text(
-                //           'SignUp',
-                //           style: TextStyle(color: Colors.white, fontSize: 20),
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.black, // text color
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            SignUpScreen(), // Navigate to SignUpScreen
+                      ),
+                    );
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.person_add_outlined,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          'SignUp',
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

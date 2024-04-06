@@ -37,9 +37,9 @@ class SettingsPage extends StatelessWidget {
                 fontsize: 25,
                 fontweight: FontWeight.w600,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               SizedBox(
-                height: size.height * .35,
+                height: size.height * .25,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

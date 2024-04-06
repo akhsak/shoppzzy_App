@@ -17,7 +17,7 @@ alertSheet(BuildContext context,
           ElevatedButton(
               style: const ButtonStyle(
                 backgroundColor:
-                    MaterialStatePropertyAll(Color.fromARGB(255, 3, 45, 79)),
+                    MaterialStatePropertyAll(Color.fromARGB(255, 4, 5, 5)),
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -26,7 +26,7 @@ alertSheet(BuildContext context,
           ElevatedButton(
               style: const ButtonStyle(
                   backgroundColor:
-                      MaterialStatePropertyAll(Color.fromARGB(255, 3, 45, 79))),
+                      MaterialStatePropertyAll(Color.fromARGB(255, 1, 1, 1))),
               onPressed: onPressed,
               child:
                   textPoppins(name: confirmButtonLabel, color: Colors.white)),
