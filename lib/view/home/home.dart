@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/authontication_provider.dart';
 import 'package:olx_app_firebase/controller/provider_home.dart';
@@ -10,7 +8,7 @@ import 'package:olx_app_firebase/widgets/text_style.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   final List<Map<String, dynamic>> categories = [
     {'name': 'T-Shirt', 'image': 'assets/T-shirtt_img.jpg'},
@@ -23,7 +21,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productProvider = Provider.of<ProductProvider>(context, listen: false);
+    final productProvider =
+        Provider.of<ProductProvider>(context, listen: false);
     Size size = MediaQuery.of(context).size;
     Provider.of<ProductProvider>(context, listen: false).getAllCar();
     Provider.of<AuthenticationProvider>(context, listen: false);
@@ -51,16 +50,21 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
-            searchTextFormField(
-              onChanged: (value) => productProvider.search(productProvider.searchController.text),
-              controller: productProvider.searchController,
+            SizedBox(
+              height: 50,
+              child: searchTextFormField(
+                onChanged: (value) => productProvider
+                    .search(productProvider.searchController.text),
+                controller: productProvider.searchController,
+              ),
             ),
           ],
         ),
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => WishListPage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => WishListPage()));
             },
             icon: Padding(
               padding: const EdgeInsets.only(top: 20, right: 20, left: 30),
@@ -73,7 +77,38 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 180, top: 20),
+                  child: textPoppins(
+                    name: 'Browse Categories',
+                    fontsize: 15,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: InkWell(
+                    onTap: () {
+                      // Add your action here
+                    },
+                    child: Text(
+                      'See all',
+                      style: TextStyle(
+                        fontSize: 15,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: SizedBox(
@@ -88,11 +123,9 @@ class HomeScreen extends StatelessWidget {
                       radius: 25.0,
                       backgroundImage: AssetImage(categories[index]['image']),
                       backgroundColor: Colors.white,
-                      
-                     // child: Text(categories[index]['name']),
+                      //  child: Text(categories[index]['name']),
                     ),
                   );
-                  
                 },
               ),
             ),
@@ -109,22 +142,22 @@ class HomeScreen extends StatelessWidget {
           //   ),
           // ),
           const SizedBox(height: 10),
-          
-             const Padding(
-              padding: EdgeInsets.all(5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'my products',
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600),
-                  )
-                ],
-              ),
+
+          const Padding(
+            padding: EdgeInsets.all(5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'my products',
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600),
+                )
+              ],
             ),
+          ),
           const SizedBox(height: 10),
           Expanded(
             child: Consumer<ProductProvider>(
@@ -139,7 +172,8 @@ class HomeScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Image.asset('assets/serch empty.jpg'),
-                          textPoppins(name: 'SEARCHED PRODUCTS IS NOT AVAILABLE'),
+                          textPoppins(
+                              name: 'SEARCHED PRODUCTS IS NOT AVAILABLE'),
                         ],
                       ),
                     ),
@@ -162,7 +196,8 @@ class HomeScreen extends StatelessWidget {
                                   description: products.description,
                                   location: products.location,
                                   price: products.price,
-                                  image: NetworkImage(products.image.toString()),
+                                  image:
+                                      NetworkImage(products.image.toString()),
                                   category: products.brand,
                                 ),
                               ),
@@ -195,7 +230,7 @@ class HomeScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>  DetailsPage(),
+                              builder: (context) => DetailsPage(),
                             ),
                           );
                         },
@@ -226,15 +261,15 @@ Widget searchTextFormField({controller, onChanged}) {
       hintStyle: const TextStyle(color: Color.fromARGB(255, 2, 2, 2)),
       enabledBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Color.fromARGB(255, 2, 2, 3)),
-       // borderRadius: BorderRadius.circular(10),
+        // borderRadius: BorderRadius.circular(10),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Color.fromARGB(255, 10, 10, 10)),
-       // borderRadius: BorderRadius.circular(10),
+        // borderRadius: BorderRadius.circular(10),
       ),
       border: OutlineInputBorder(
-       // borderRadius: BorderRadius.circular(10),
-      ),
+          // borderRadius: BorderRadius.circular(10),
+          ),
       prefixIcon: const Icon(
         Icons.search,
         color: Color.fromARGB(255, 6, 6, 6),
@@ -251,4 +286,3 @@ SliverGridDelegateWithFixedCrossAxisCount gridDelegate(childAspectRatio) {
     childAspectRatio: childAspectRatio,
   );
 }
-
