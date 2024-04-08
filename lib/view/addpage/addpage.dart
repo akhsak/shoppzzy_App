@@ -1,18 +1,11 @@
-
-
-
-
 // ignore_for_file: use_build_context_synchronously
-
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:olx_app_firebase/controller/provider_home.dart';
 import 'package:olx_app_firebase/model/product_model.dart';
-import 'package:olx_app_firebase/view/home/home.dart';
 import 'package:olx_app_firebase/widgets/bottom_screen.dart';
 import 'package:olx_app_firebase/widgets/button.dart';
 import 'package:olx_app_firebase/widgets/snackbar_widget.dart';
@@ -59,7 +52,7 @@ class Addpage extends StatelessWidget {
                                                 )
                                               : const DecorationImage(
                                                   image: AssetImage(
-                                                      'assets/image_add.png'),
+                                                      'assets/phone otp.jpg'),
                                                   fit: BoxFit.contain,
                                                 ),
                                         ),

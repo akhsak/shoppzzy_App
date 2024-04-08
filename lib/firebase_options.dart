@@ -67,6 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '93523399209',
     projectId: 'olxapp-c5e5c',
     storageBucket: 'olxapp-c5e5c.appspot.com',
+    androidClientId: '93523399209-4ir6lqpr92e9ud1l98aassv2h8k1b7ga.apps.googleusercontent.com',
     iosClientId: '93523399209-k7os8cs7fo8j5ck99nt1vbc38j9u3o1f.apps.googleusercontent.com',
     iosBundleId: 'com.example.olxAppFirebase',
   );
@@ -77,6 +78,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '93523399209',
     projectId: 'olxapp-c5e5c',
     storageBucket: 'olxapp-c5e5c.appspot.com',
+    androidClientId: '93523399209-4ir6lqpr92e9ud1l98aassv2h8k1b7ga.apps.googleusercontent.com',
     iosClientId: '93523399209-qhm3afd0qnu4vs709neg4j531cgirhvo.apps.googleusercontent.com',
     iosBundleId: 'com.example.olxAppFirebase.RunnerTests',
   );

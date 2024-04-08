@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
 import 'package:olx_app_firebase/model/product_model.dart';
 import 'package:olx_app_firebase/services/service.dart';
 
@@ -27,7 +26,7 @@ class ProductProvider extends ChangeNotifier {
   TextEditingController searchController = TextEditingController();
   TextEditingController categoryController = TextEditingController();
   List<ProductModel> searchList = [];
-  List<ProductModel> allCarList = [];
+  List<ProductModel> allProductList = [];
 
   void setIsAddingData(bool value) {
     isAddingData = value;
@@ -47,17 +46,17 @@ class ProductProvider extends ChangeNotifier {
     await productService.addProduct(data);
 
     notifyListeners();
-    getAllCar();
+    getAllProduct();
   }
 
-  void deleteCar(String id) async {
+  void deleteProduct(String id) async {
     await productService.deleteProduct(id);
-    getAllCar();
+    getAllProduct();
   }
 
-  void getAllCar() async {
+  void getAllProduct() async {
     isLoading = true;
-    allCarList = await productService.getAllProducts();
+    allProductList = await productService.getAllProducts();
     isLoading = false;
     notifyListeners();
   }
@@ -93,7 +92,7 @@ class ProductProvider extends ChangeNotifier {
     if (value.isEmpty) {
       searchList = [];
     } else {
-      searchList = allCarList
+      searchList = allProductList
           .where((ProductModel product) =>
               product.name!.toLowerCase().contains(value.toLowerCase()))
           .toList();
@@ -111,10 +110,10 @@ class ProductProvider extends ChangeNotifier {
     if (currentUser != null) {
       final user = currentUser.email ?? currentUser.phoneNumber;
       if (product.wishList.contains(user)) {
-        getAllCar();
+        getAllProduct();
         return false;
       } else {
-        getAllCar();
+        getAllProduct();
         return true;
       }
     } else {

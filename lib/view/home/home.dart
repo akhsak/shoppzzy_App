@@ -8,7 +8,7 @@ import 'package:olx_app_firebase/widgets/text_style.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({super.key});
 
   final List<Map<String, dynamic>> categories = [
     {'name': 'T-Shirt', 'image': 'assets/T-shirtt_img.jpg'},
@@ -24,12 +24,12 @@ class HomeScreen extends StatelessWidget {
     final productProvider =
         Provider.of<ProductProvider>(context, listen: false);
     Size size = MediaQuery.of(context).size;
-    Provider.of<ProductProvider>(context, listen: false).getAllCar();
+    Provider.of<ProductProvider>(context, listen: false).getAllProduct();
     Provider.of<AuthenticationProvider>(context, listen: false);
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 241, 242, 244),
+        backgroundColor: const Color.fromARGB(255, 241, 242, 244),
         toolbarHeight: 170,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 textPoppins(
                   name: 'shoppzzy',
-                  color: Color.fromARGB(255, 0, 0, 0),
+                  color: const Color.fromARGB(255, 0, 0, 0),
                   fontsize: 25,
                   fontweight: FontWeight.w700,
                 ),
@@ -64,10 +64,10 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => WishListPage()));
+                  MaterialPageRoute(builder: (context) => const WishListPage()));
             },
-            icon: Padding(
-              padding: const EdgeInsets.only(top: 20, right: 20, left: 30),
+            icon: const Padding(
+              padding: EdgeInsets.only(top: 20, right: 20, left: 30),
               child: Icon(Icons.favorite_border_outlined),
             ),
             iconSize: 30,
@@ -94,7 +94,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {
                       // Add your action here
                     },
-                    child: Text(
+                    child: const Text(
                       'See all',
                       style: TextStyle(
                         fontSize: 15,
@@ -106,7 +106,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -179,8 +179,8 @@ class HomeScreen extends StatelessWidget {
                     ),
                   );
                 } else if (productValue.searchList.isEmpty) {
-                  if (productValue.allCarList.isNotEmpty) {
-                    final allCar = productValue.allCarList;
+                  if (productValue.allProductList.isNotEmpty) {
+                    final allCar = productValue.allProductList;
                     return GridView.builder(
                       gridDelegate: gridDelegate(size.width * 0.0018),
                       itemCount: allCar.length,
@@ -230,7 +230,7 @@ class HomeScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailsPage(),
+                              builder: (context) => const DetailsPage(),
                             ),
                           );
                         },
@@ -256,21 +256,21 @@ Widget searchTextFormField({controller, onChanged}) {
     onChanged: onChanged,
     controller: controller,
     style: const TextStyle(color: Color.fromARGB(255, 9, 9, 9)),
-    decoration: InputDecoration(
+    decoration: const InputDecoration(
       hintText: 'Search...',
-      hintStyle: const TextStyle(color: Color.fromARGB(255, 2, 2, 2)),
+      hintStyle: TextStyle(color: Color.fromARGB(255, 2, 2, 2)),
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Color.fromARGB(255, 2, 2, 3)),
+        borderSide: BorderSide(color: Color.fromARGB(255, 2, 2, 3)),
         // borderRadius: BorderRadius.circular(10),
       ),
       focusedBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Color.fromARGB(255, 10, 10, 10)),
+        borderSide: BorderSide(color: Color.fromARGB(255, 10, 10, 10)),
         // borderRadius: BorderRadius.circular(10),
       ),
       border: OutlineInputBorder(
           // borderRadius: BorderRadius.circular(10),
           ),
-      prefixIcon: const Icon(
+      prefixIcon: Icon(
         Icons.search,
         color: Color.fromARGB(255, 6, 6, 6),
       ),

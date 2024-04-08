@@ -74,7 +74,7 @@ class WishListPage extends StatelessWidget {
     }
     final user = currentUser.email ?? currentUser.phoneNumber;
     List<ProductModel> myCars = [];
-    for (var product in productProvider.allCarList) {
+    for (var product in productProvider.allProductList) {
       if (product.wishList.contains(user)) {
         myCars.add(product);
       }

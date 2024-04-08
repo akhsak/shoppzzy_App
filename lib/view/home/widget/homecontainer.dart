@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/provider_home.dart';
 import 'package:olx_app_firebase/model/product_model.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
-import 'package:provider/provider.dart';
 
 class HomeContainer extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
