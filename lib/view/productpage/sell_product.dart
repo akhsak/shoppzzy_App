@@ -93,7 +93,7 @@ class _SellProductPageState extends State<SellProductPage> {
                                   scale: size.width * .07,
                                   image: value.file == null
                                       ? AssetImage(
-                                          'assets/profile_icon.jpg',
+                                          'assets/download.jpg',
                                         )
                                       : FileImage(
                                           File(value.file!.path),
@@ -158,7 +158,6 @@ class _SellProductPageState extends State<SellProductPage> {
                       TextFieldWidgets().textFormField(
                         size,
                         label: "Description",
-                        // maxLines: 2,
                         controller: getProvider.descriptionController,
                       ),
                       Row(

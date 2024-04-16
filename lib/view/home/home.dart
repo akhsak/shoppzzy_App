@@ -148,36 +148,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 10),
-          // const Padding(
-          //   padding: EdgeInsets.all(5.0),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       Text(
-          //         'Special Products',
-          //         style: TextStyle(
-          //           fontSize: 15,
-          //           color: Colors.black,
-          //           fontWeight: FontWeight.w600,
-          //         ),
-          //       )
-          //     ],
-          //   ),
-          // ),
-          // SizedBox(
-          //   height: 150,
-          //   child: ListView.builder(
-          //     scrollDirection: Axis.horizontal,
-          //     itemCount: specialProduct.length,
-          //     itemBuilder: (BuildContext context, int index) {
-          //       return Padding(
-          //         padding: const EdgeInsets.symmetric(horizontal: 8),
-          //         child: Image.asset(specialProduct[index]),
-          //       );
-          //     },
-          //   ),
-          // ),
+         
           const SizedBox(height: 10),
           const Padding(
             padding: EdgeInsets.all(5.0),
@@ -229,13 +200,7 @@ class HomeScreen extends StatelessWidget {
                               MaterialPageRoute(
                                 builder: (context) => ProductDetailsPage(
                                   products: products,
-                                  //  products.name,
-                                  //   description: products.description,
-                                  //   location: products.location,
-                                  //   price: products.price,
-                                  //   image:
-                                  //       NetworkImage(products.image.toString()),
-                                  //   category: products.brand,
+                                  
                                 ),
                               ),
                             );

@@ -54,7 +54,7 @@ class CategoryPage extends StatelessWidget {
                                         fit: BoxFit.cover,
                                       )
                                     : Lottie.asset(
-                                        'assets/lottie/sellX logo.json'),
+                                        'assets/Animation - empty.json'),
                               ),
                               const SizedBox(height: 10),
                               TextWidgets()
@@ -88,7 +88,7 @@ class CategoryPage extends StatelessWidget {
                 )
               : Center(
                   child: Lottie.asset(
-                      'assets/Animation -splash screen.json'),
+                      'assets/Animation - empty.json'),
                 );
         },
       ),

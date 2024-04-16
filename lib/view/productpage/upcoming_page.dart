@@ -160,7 +160,7 @@ class UpComingPage extends StatelessWidget {
                         child: Lottie.asset(
                             width: size.width * .20,
                             height: size.width * .20,
-                            'assets/Animation -splash screen.json'),
+                            'assets/Animation - empty.json'),
                       );
               },
             ),

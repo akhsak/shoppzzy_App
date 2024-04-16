@@ -294,7 +294,7 @@ class SoldProductPage extends StatelessWidget {
                         ),
                       )
                     : Center(
-                        child: Lottie.asset('assets/Animation -splash screen.json',
+                        child: Lottie.asset('assets/Animation - empty.json',
                             width: size.width * .20,
                             height: size.width * .20),
                       );

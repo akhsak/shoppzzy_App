@@ -5,6 +5,7 @@ import 'package:olx_app_firebase/model/product_model.dart';
 import 'package:olx_app_firebase/model/user_model.dart';
 import 'package:olx_app_firebase/view/screens/creatuser.dart';
 import 'package:olx_app_firebase/view/profile_Page/profile.dart';
+import 'package:olx_app_firebase/widgets/text_style.dart';
 import 'package:provider/provider.dart';
 
 class UserDetailsPage extends StatelessWidget {
@@ -18,7 +19,12 @@ class UserDetailsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("My Profile"),
+        title: textPoppins(name: 'My profile',fontweight: FontWeight.w600),
+         leading:IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back_ios)),
         centerTitle: true,
       ),
       body: Padding(

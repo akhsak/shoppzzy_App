@@ -16,6 +16,13 @@ class WishListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: textPoppins(name: 'Wishlist page',fontweight: FontWeight.w600),
+      leading:IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back_ios)), 
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 50, left: 12, right: 12),
         child: SingleChildScrollView(
@@ -24,18 +31,18 @@ class WishListPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               
-               IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.arrow_back_ios)),
-              Center(
-                child: textPoppins(
-                  name: 'wishlist',
-                  fontsize: 25,
-                  fontweight: FontWeight.w600,
-                ),
-              ),
+              //  IconButton(
+              //   onPressed: () {
+              //     Navigator.pop(context);
+              //   },
+              //   icon: const Icon(Icons.arrow_back_ios)),
+              // Center(
+              //   child: textPoppins(
+              //     name: 'wishlist',
+              //     fontsize: 25,
+              //     fontweight: FontWeight.w600,
+              //   ),
+              // ),
               
               Consumer<ProductProvider>(
                 builder: (context, ProductProvider, child) {

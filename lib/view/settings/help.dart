@@ -1,18 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// class HelpPage extends StatelessWidget {
-//   const HelpPage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text('Help centere'),),
-//     );
-//   }
-// }
-
-
-
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/view/settings/wiget_settings/screen_widget.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
