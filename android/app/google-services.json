@@ -48,6 +48,42 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93523399209:android:f2a955e925145a470d4238",
+        "android_client_info": {
+          "package_name": "in.bridgeon.shoppzzy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93523399209-p4vko5855bp105lsov48if2fe23g59dt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7L9Etsz1LseGrjST6VsTDwKjfX5oVpVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93523399209-p4vko5855bp105lsov48if2fe23g59dt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "93523399209-k7os8cs7fo8j5ck99nt1vbc38j9u3o1f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.olxAppFirebase"
+              }
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

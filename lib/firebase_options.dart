@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD7L9Etsz1LseGrjST6VsTDwKjfX5oVpVI',
-    appId: '1:93523399209:android:28d47d6aa5975e5d0d4238',
+    appId: '1:93523399209:android:f2a955e925145a470d4238',
     messagingSenderId: '93523399209',
     projectId: 'olxapp-c5e5c',
     storageBucket: 'olxapp-c5e5c.appspot.com',
