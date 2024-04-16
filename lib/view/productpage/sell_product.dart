@@ -223,7 +223,6 @@ class _SellProductPageState extends State<SellProductPage> {
         Provider.of<WidgetProvider>(context, listen: false);
     PopupWidgets().showLoadingIndicator(context);
     await getProvider.uploadImage(File(getwidgetProvider.file!.path));
-    print('bbb');
 
     final user = FirebaseAuth.instance.currentUser;
     final product = ProductModel(
