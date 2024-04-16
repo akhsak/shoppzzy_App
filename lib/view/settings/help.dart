@@ -64,7 +64,7 @@ class HelpPage extends StatelessWidget {
                     ),
                     const FAQItem(
                       question:
-                          'How can I contact with RoadWay customer service ?',
+                          'How can I contact with Shopzzy customer service ?',
                       answer: 'settings -> Help Center -> Contact Information',
                     ),
                     const FAQItem(
@@ -86,7 +86,7 @@ class HelpPage extends StatelessWidget {
                     ),
                     ListTile(
                       leading: const Icon(Icons.phone),
-                      title: const Text('Phone: +91 702 564 61 62'),
+                      title: const Text('Phone: +91 906 157 15 90'),
                       onTap: () {},
                     ),
                   ],

@@ -5,12 +5,12 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:olx_app_firebase/model/product_model.dart';
-import 'package:olx_app_firebase/services/service.dart';
+import 'package:olx_app_firebase/services/product_service.dart';
 
 class ProductProvider extends ChangeNotifier {
   File? pickedImage;
   String imageName = DateTime.now().microsecondsSinceEpoch.toString();
-  String? downloadUrl;
+  String downloadUrl='';
   bool isLoading = false;
   bool isAddingData = false;
 
@@ -25,8 +25,23 @@ class ProductProvider extends ChangeNotifier {
   TextEditingController locationController = TextEditingController();
   TextEditingController searchController = TextEditingController();
   TextEditingController categoryController = TextEditingController();
+  TextEditingController titleController = TextEditingController();
+  TextEditingController brandController = TextEditingController();
   List<ProductModel> searchList = [];
   List<ProductModel> allProductList = [];
+    bool? isEdit;
+
+
+    void loadDatasForEdit(ProductModel product) {
+    titleController = TextEditingController(text: product.title);
+    brandController = TextEditingController(text: product.brand);
+    locationController = TextEditingController(text: product.location);
+    descriptionController = TextEditingController(text: product.description);
+    priceController = TextEditingController(
+      text: product.price != null ? product.price.toString() : '',
+    );
+  }
+
 
   void setIsAddingData(bool value) {
     isAddingData = value;
@@ -40,14 +55,22 @@ class ProductProvider extends ChangeNotifier {
     descriptionController.clear();
     priceController.clear();
     pickedImage = null;
+   notifyListeners();
   }
 
   void addProduct(ProductModel data) async {
     await productService.addProduct(data);
-
+clearProductControllers();
     notifyListeners();
     getAllProduct();
   }
+
+  // updateMyProduct(productId, ProductModel data) async {
+  //   await ProductService.updateMyProduct(productId,data);
+  //  // await ProductService.updateMyProudct(productId, data);
+  //  clearProductControllers();
+  //   notifyListeners();
+  // }
 
   void deleteProduct(String id) async {
     await productService.deleteProduct(id);
@@ -61,20 +84,40 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<String> uploadImage(image, imageName) async {
+  idSold(String id) async {
+    await productService.IsSold(id);
+    getAllProduct();
+  }
+
+  //  uploadImage(image) async {
+  //   try {
+  //     if (image != null) {
+  //       String downloadUrl = await productService.uploadImage(imageName, image);
+  //       log(downloadUrl);
+  //       notifyListeners();
+  //       return downloadUrl;
+  //     } else {
+  //       log('image is null');
+  //       return '';
+  //     }
+  //   } catch (e) {
+  //     log('got an error of $e');
+  //     rethrow;
+  //   }
+  // }
+  // image funtion
+  uploadImage(image) async {
     try {
       if (image != null) {
-        String downloadUrl = await productService.uploadImage(imageName, image);
-        log(downloadUrl);
+        downloadUrl = await productService.uploadImage(imageName, image);
+
         notifyListeners();
-        return downloadUrl;
       } else {
         log('image is null');
-        return '';
       }
     } catch (e) {
-      log('got an error of $e');
-      rethrow;
+      log("$e");
+      throw e;
     }
   }
 
@@ -88,13 +131,15 @@ class ProductProvider extends ChangeNotifier {
     }
   }
 
+
+
   void search(String value) {
     if (value.isEmpty) {
       searchList = [];
     } else {
       searchList = allProductList
           .where((ProductModel product) =>
-              product.name!.toLowerCase().contains(value.toLowerCase()))
+              product.title!.toLowerCase().contains(value.toLowerCase()))
           .toList();
     }
     notifyListeners();
@@ -109,7 +154,7 @@ class ProductProvider extends ChangeNotifier {
     final currentUser = FirebaseAuth.instance.currentUser;
     if (currentUser != null) {
       final user = currentUser.email ?? currentUser.phoneNumber;
-      if (product.wishList.contains(user)) {
+      if (product.wishList!.contains(user)) {
         getAllProduct();
         return false;
       } else {
@@ -120,4 +165,11 @@ class ProductProvider extends ChangeNotifier {
       return true;
     }
   }
+
+  updateMyProduct(String? id, ProductModel product) {}
+
+  // updateMyProduct(String? id, ProductModel product) {
+
+    
+  // }
 }

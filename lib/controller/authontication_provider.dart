@@ -79,4 +79,6 @@ class AuthenticationProvider extends ChangeNotifier {
     await authService.verifyOtp(otp, context);
     notifyListeners();
   }
+
+  void getUserData() {}
 }

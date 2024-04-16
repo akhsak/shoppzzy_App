@@ -31,21 +31,21 @@ class WelcomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Welcome to OLX',
+                  'Welcome to Shopzzy',
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w600,
                     color: Color.fromARGB(255, 16, 15, 15),
                   ),
                 ),
-                Text(
-                  'Ecommerce application',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                    color: Color.fromARGB(255, 8, 8, 8),
-                  ),
-                ),
+                // Text(
+                //   'Ecommerce application',
+                //   style: TextStyle(
+                //     fontSize: 17,
+                //     fontWeight: FontWeight.w600,
+                //     color: Color.fromARGB(255, 8, 8, 8),
+                //   ),
+                // ),
               ],
             ),
           ),

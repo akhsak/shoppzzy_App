@@ -1,10 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/view/authontication_screen.dart/login_screen.dart';
 import 'package:olx_app_firebase/view/authontication_screen.dart/signup_page.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
 
 class SelectLoginScreen extends StatelessWidget {
-  const SelectLoginScreen({super.key, Key});
+  const SelectLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

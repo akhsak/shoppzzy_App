@@ -10,16 +10,16 @@ Widget buildSettingItem(BuildContext context,
     onTap: onTap,
     child: Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      color: Colors.black,
+      color: const Color.fromARGB(255, 251, 249, 249),
       child: Padding(
         padding: const EdgeInsets.all(15),
         child: Row(
           children: [
-            Icon(icon, color: Colors.white),
+            Icon(icon, color: const Color.fromARGB(255, 5, 5, 5)),
             const SizedBox(width: 10),
             Text(
               title,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Color.fromARGB(255, 11, 11, 11)),
             ),
           ],
         ),
@@ -32,7 +32,7 @@ Widget buildKeyFeature({required String title, required String description}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      textPoppins(name: title, fontweight: FontWeight.w500, fontsize: 17),
+      textPoppins(name: title, fontweight: FontWeight.normal, fontsize: 17),
       const SizedBox(height: 5.0),
       textAbel(name: description, fontweight: FontWeight.w600, fontsize: 15),
       const SizedBox(height: 10.0),

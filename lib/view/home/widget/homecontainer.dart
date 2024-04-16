@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/provider_home.dart';
 import 'package:olx_app_firebase/model/product_model.dart';
+import 'package:olx_app_firebase/view/screens/category.dart';
+import 'package:olx_app_firebase/widgets/navigator.dart';
 import 'package:olx_app_firebase/widgets/text_style.dart';
 
 class HomeContainer extends StatelessWidget {
@@ -41,7 +43,7 @@ class HomeContainer extends StatelessWidget {
             ),
             SizedBox(height: size.height * .01),
             textPoppins(
-                name: product.name,
+                name: product.title,
                 fontweight: FontWeight.bold,
                 fontsize: 16),
             SizedBox(height: size.height * .01),
@@ -83,3 +85,5 @@ class HomeContainer extends StatelessWidget {
     );
   }
 }
+
+ 

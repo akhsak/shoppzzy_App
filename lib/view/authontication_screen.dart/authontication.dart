@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:olx_app_firebase/view/select_loginScreen.dart';
+import 'package:olx_app_firebase/view/select_loginscreen.dart';
 import 'package:olx_app_firebase/widgets/bottom_screen.dart';
 
 class AuthenticationNavigate extends StatelessWidget {

@@ -1,5 +1,7 @@
 
 
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/provider_home.dart';
@@ -36,8 +38,8 @@ class WishListPage extends StatelessWidget {
               ),
               
               Consumer<ProductProvider>(
-                builder: (context, carProvider, child) {
-                  final wishlistItems = checkUser(carProvider);
+                builder: (context, ProductProvider, child) {
+                  final wishlistItems = checkUser(ProductProvider);
                   return GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -52,7 +54,7 @@ class WishListPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final item = wishlistItems[index];
                       return HomeContainer(
-                        value: carProvider,
+                        value: ProductProvider,
                         product: item,
                         
                       );
@@ -73,12 +75,12 @@ class WishListPage extends StatelessWidget {
       return [];
     }
     final user = currentUser.email ?? currentUser.phoneNumber;
-    List<ProductModel> myCars = [];
+    List<ProductModel> myProducts = [];
     for (var product in productProvider.allProductList) {
-      if (product.wishList.contains(user)) {
-        myCars.add(product);
+      if (product.wishList!.contains(user)) {
+        myProducts.add(product);
       }
     }
-    return myCars;
+    return myProducts;
   }
 }
