@@ -45,7 +45,7 @@ class LoginWidgets {
             child: const Image(
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                    'https://cdn-icons-png.freepik.com/256/100/100313.png')),
+                    'https://i.pngimg.me/thumb/f/720/m2H7G6A0H7d3G6Z5.jpg')),
           ),
         ),
       ],

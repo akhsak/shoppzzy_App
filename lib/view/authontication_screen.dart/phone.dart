@@ -30,7 +30,7 @@ class PhoneScreen extends StatelessWidget {
               height: size.height * .4,
               width: size.width * .8,
               child:
-              Image.asset('assets/mobile otp verify.jpg')
+              Image.asset('assets/mobile_otp.jpg')
             ),
           ),
           SizedBox(height: size.height * .07),

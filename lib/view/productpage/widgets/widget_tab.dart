@@ -5,19 +5,18 @@ import 'package:olx_app_firebase/controller/provider_home.dart';
 import 'package:olx_app_firebase/controller/user_provider.dart';
 import 'package:olx_app_firebase/model/product_model.dart';
 import 'package:olx_app_firebase/model/user_model.dart';
-import 'package:olx_app_firebase/view/addpage/addpage.dart';
 import 'package:olx_app_firebase/view/productpage/sell_product.dart';
 import 'package:olx_app_firebase/view/productpage/sold_product.dart';
 import 'package:olx_app_firebase/view/productpage/upcoming_page.dart';
 import 'package:olx_app_firebase/view/screens/creatuser.dart';
-import 'package:olx_app_firebase/view/screens/product_details_page.dart';
 import 'package:olx_app_firebase/widgets/icons.dart';
 import 'package:olx_app_firebase/widgets/navigator.dart';
 import 'package:olx_app_firebase/widgets/pop_up.dart';
+import 'package:olx_app_firebase/widgets/text_style.dart';
 import 'package:provider/provider.dart';
 
 class MyProductTab extends StatefulWidget {
-  const MyProductTab({Key? key}) : super(key: key);
+  const MyProductTab({super.key});
 
   @override
   State<MyProductTab> createState() => _MyProductTabState();
@@ -30,8 +29,9 @@ class _MyProductTabState extends State<MyProductTab> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('My Products'),
-          bottom: TabBar(
+          title: textPoppins(name:' My Products',fontweight: FontWeight.w600
+          ),
+          bottom: const TabBar(
             labelColor: Color.fromARGB(255, 1, 0, 2),
             unselectedLabelColor: Colors.green,
             tabs: [
@@ -44,7 +44,7 @@ class _MyProductTabState extends State<MyProductTab> {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
             UpComingPage(),
             SoldProductPage(),
@@ -52,14 +52,14 @@ class _MyProductTabState extends State<MyProductTab> {
         ),
         floatingActionButton: FloatingActionButton(
           elevation: 0,
-          backgroundColor: const Color.fromARGB(255, 37, 157, 192),
+          backgroundColor: Colors.green,
           onPressed: () async {
             final currentUser = FirebaseAuth.instance.currentUser;
             final uId = currentUser?.uid;
 
             if (uId != null) {
               UserModel? userData =
-                  await Provider.of<UserProvider>(context, listen: false)
+                  Provider.of<UserProvider>(context, listen: false)
                       .getCurrentUserData(uId);
 
               if (userData == null || userData.name!.isEmpty) {

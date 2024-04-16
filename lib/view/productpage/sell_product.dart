@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:olx_app_firebase/controller/bottom_provider.dart';
 import 'package:olx_app_firebase/controller/provider_home.dart';
 import 'package:olx_app_firebase/model/product_model.dart';
-import 'package:olx_app_firebase/view/addpage/widgets/widgets.dart';
+import 'package:olx_app_firebase/view/productpage/widgets/widgets.dart';
 import 'package:olx_app_firebase/widgets/button.dart';
 import 'package:olx_app_firebase/widgets/button_widget.dart';
 import 'package:olx_app_firebase/widgets/pop_up.dart';
@@ -34,7 +34,7 @@ class _SellProductPageState extends State<SellProductPage> {
   final formKey = GlobalKey<FormState>();
 
   final List<String> categories = [
-    'T-Shirt', 
+    'Shirt', 
     'Jewellery', 
     'Dress', 
     'Jackets',

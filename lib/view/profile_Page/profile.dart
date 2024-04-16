@@ -1,147 +1,99 @@
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:olx_app_firebase/controller/user_provider.dart';
-// import 'package:olx_app_firebase/model/product_model.dart';
-// import 'package:olx_app_firebase/model/user_model.dart';
-// import 'package:olx_app_firebase/view/addpage/widgets/widget_tab.dart';
-// import 'package:olx_app_firebase/view/screens/details_page.dart';
-// import 'package:olx_app_firebase/view/screens/userdetails.dart';
-// import 'package:olx_app_firebase/view/settings/settings_page.dart';
-// import 'package:olx_app_firebase/widgets/text_style.dart';
-// import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:olx_app_firebase/widgets/icons.dart';
 
-// class ProfilePage extends StatelessWidget {
-//   ProfilePage({super.key});
+class ProfileWidgets {
+  Widget textFormFieldBox(
+    bool clickBool,
+    Size size,
+    value,
+    String label, {
+    controller,
+    TextInputFormatter? inputFormatter,
+    TextInputType? keyboardType,
+  }) {
+    return Material(
+      elevation: 10,
+      shadowColor: const Color.fromARGB(77, 0, 0, 0),
+      child: clickBool == true
+          ? ListTile(
+              title: Text(
+                label,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: const Color.fromARGB(255, 53, 53, 53),
+                  fontSize: size.width * .03,
+                ),
+              ),
+              subtitle: Text(
+                value,
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  color: Colors.black,
+                  fontSize: size.width * .035,
+                ),
+              ),
+            )
+          : Padding(
+              padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
+              child: TextFormField(
+                inputFormatters: inputFormatter != null ? [inputFormatter] : [],
+                keyboardType: keyboardType ?? TextInputType.text,
+                // validator: (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return " Please enter $label";
+                //   } else {
+                //     return null;
+                //   }
+                // },
+                controller: controller,
+                decoration: InputDecoration(
+                  border: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent)),
+                  labelText: label,
+                  labelStyle: const TextStyle(color: Colors.black),
+                  focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                ),
+              ),
+            ),
+    );
+  }
 
-//   final List listTitles = [
-//     'my Profile',
-//     'my Products',
-//     'Wishlist',
-//     'Help Center',
-//   ];
-
-//   final List listSubTitles = [
-//     'Make Your Profile',
-//     'Active Ads & InActive Ads',
-//     'You have 2 cards',
-//     'FAQ, Contact, Privacy & Terms',
-//   ];
-
-//   final List<Widget> listTabs = [
-//    // UserDetailsPage(),
-//     UserDetailsPage(products: ProductModel(),),
-//    // MyProductTab(),
-//    // WishlistPage(),
-//   //  SettingsPage(),
-//   ];
-
-//   String? username;
-//   String? email;
-  
-//   @override
-//   Widget build(BuildContext context) {
-//     Size size = MediaQuery.of(context).size;
-
-//     return Scaffold(
-//       appBar: AppBar(
-//         actions: [
-//           IconButton(onPressed: () {}, icon: Icon(Icons.login_outlined))
-//         ],
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
-//         child: Column(
-//           children: [
-//             Consumer<UserProvider>(builder: (context, userProvide, child) {
-//               final currentUser = FirebaseAuth.instance.currentUser;
-//               final uId = currentUser?.uid;
-//               UserModel? userData = userProvide.getCurrentUserData(uId);
-//               return Row(
-//                 children: [
-//                   CircleAvatar(
-//                     backgroundImage: userData!.profilePic != null
-//                         ? NetworkImage(userData.profilePic.toString())
-//                         : AssetImage('assets/profile_icon.jpg')
-//                             as ImageProvider,
-//                     radius: 50,
-//                     backgroundColor: Colors.white,
-//                   ),
-//                   SizedBox(
-//                     width: size.width * .03,
-//                   ),
-//                   Column(
-//                     crossAxisAlignment: CrossAxisAlignment.start,
-//                     children: [
-//                       SizedBox(
-//                         width: size.width * .45,
-//                         child: Text(
-//                           userData.name!.isEmpty
-//                               ? 'Uknown name'
-//                               : userData.name.toString(),
-//                           style: GoogleFonts.montserrat(
-//                             fontWeight: FontWeight.bold,
-//                             fontSize: size.width * .05,
-//                           ),
-//                         ),
-//                       ),
-//                       Text(
-//                         userData.phoneNumber ?? '',
-//                         style: GoogleFonts.montserrat(
-//                           fontWeight: FontWeight.bold,
-//                           fontSize: size.width * .03,
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                   // IconsWidgets().IconButtonWidget(context, size,
-//                   //     onPressed: () =>
-//                   //         NavigatorWidget().push(context, UserDetailsPage()),
-//                   //     iconData: EneftyIcons.edit_2_outline)
-//                 ],
-//               );
-//             }),
-//             SizedBox(
-//               height: size.width * .1,
-//             ),
-//             Expanded(
-//               child: ListView.separated(
-//                 itemBuilder: (context, index) => Material(
-//                   elevation: 20,
-//                   shadowColor: const Color.fromARGB(48, 0, 0, 0),
-//                   child: ListTile(
-//                     onTap: () => Navigator.push(
-//                         context,
-//                         MaterialPageRoute(
-//                           builder: (context) => listTabs[index],
-//                         )),
-//                     title: Text(
-//                       listTitles[index].toString().toUpperCase(),
-//                       style: GoogleFonts.montserrat(
-//                         fontWeight: FontWeight.w600,
-//                         fontSize: size.width * .04,
-//                       ),
-//                     ),
-//                     subtitle: Text(
-//                       listSubTitles[index],
-//                       style: TextStyle(
-//                         fontWeight: FontWeight.w600,
-//                         fontSize: size.width * .03,
-//                       ),
-//                     ),
-//                     trailing: Icon(Icons.arrow_forward_ios_outlined,
-//                         size: size.width * 0.055),
-//                   ),
-//                 ),
-//                 separatorBuilder: (context, index) => SizedBox(
-//                   height: size.width * .05,
-//                 ),
-//                 itemCount: listTabs.length,
-//               ),
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+  Widget textdBox(
+    context,
+    Size size,
+    value,
+    String label, {
+    IconData? iconData,
+    VoidCallback? onTap,
+  }) {
+    return Material(
+      elevation: 10,
+      shadowColor: const Color.fromARGB(77, 0, 0, 0),
+      child: ListTile(
+        trailing: iconData != null
+            ? IconsWidgets().IconButtonWidget(context, size, iconData: iconData)
+            : null,
+        onTap: onTap,
+        title: Text(
+          label,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            color: const Color.fromARGB(255, 53, 53, 53),
+            fontSize: size.width * .03,
+          ),
+        ),
+        subtitle: Text(
+          value ?? '',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            color: Colors.black,
+            fontSize: size.width * .035,
+          ),
+        ),
+      ),
+    );
+  }
+}

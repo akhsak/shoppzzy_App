@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:olx_app_firebase/controller/bottom_provider.dart';
 import 'package:olx_app_firebase/controller/user_provider.dart';
 import 'package:olx_app_firebase/model/user_model.dart';
-import 'package:olx_app_firebase/view/addpage/widgets/widgets.dart';
+import 'package:olx_app_firebase/view/productpage/widgets/widgets.dart';
 import 'package:olx_app_firebase/widgets/button.dart';
 import 'package:olx_app_firebase/widgets/pop_up.dart';
 import 'package:olx_app_firebase/widgets/text_file.dart';

@@ -1,5 +1,3 @@
-
-
 class UserModel {
   String? uId;
   String? name;

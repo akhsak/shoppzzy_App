@@ -4,7 +4,7 @@ import 'package:olx_app_firebase/controller/user_provider.dart';
 import 'package:olx_app_firebase/model/product_model.dart';
 import 'package:olx_app_firebase/model/user_model.dart';
 import 'package:olx_app_firebase/view/screens/creatuser.dart';
-import 'package:olx_app_firebase/view/screens/profile.dart';
+import 'package:olx_app_firebase/view/profile_Page/profile.dart';
 import 'package:provider/provider.dart';
 
 class UserDetailsPage extends StatelessWidget {

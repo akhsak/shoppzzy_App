@@ -10,7 +10,7 @@ import 'package:olx_app_firebase/services/product_service.dart';
 class ProductProvider extends ChangeNotifier {
   File? pickedImage;
   String imageName = DateTime.now().microsecondsSinceEpoch.toString();
-  String downloadUrl='';
+  String downloadUrl = '';
   bool isLoading = false;
   bool isAddingData = false;
 
@@ -29,10 +29,9 @@ class ProductProvider extends ChangeNotifier {
   TextEditingController brandController = TextEditingController();
   List<ProductModel> searchList = [];
   List<ProductModel> allProductList = [];
-    bool? isEdit;
+  bool? isEdit;
 
-
-    void loadDatasForEdit(ProductModel product) {
+  void loadDatasForEdit(ProductModel product) {
     titleController = TextEditingController(text: product.title);
     brandController = TextEditingController(text: product.brand);
     locationController = TextEditingController(text: product.location);
@@ -41,7 +40,6 @@ class ProductProvider extends ChangeNotifier {
       text: product.price != null ? product.price.toString() : '',
     );
   }
-
 
   void setIsAddingData(bool value) {
     isAddingData = value;
@@ -55,22 +53,15 @@ class ProductProvider extends ChangeNotifier {
     descriptionController.clear();
     priceController.clear();
     pickedImage = null;
-   notifyListeners();
+    notifyListeners();
   }
 
   void addProduct(ProductModel data) async {
     await productService.addProduct(data);
-clearProductControllers();
+    clearProductControllers();
     notifyListeners();
     getAllProduct();
   }
-
-  // updateMyProduct(productId, ProductModel data) async {
-  //   await ProductService.updateMyProduct(productId,data);
-  //  // await ProductService.updateMyProudct(productId, data);
-  //  clearProductControllers();
-  //   notifyListeners();
-  // }
 
   void deleteProduct(String id) async {
     await productService.deleteProduct(id);
@@ -89,22 +80,6 @@ clearProductControllers();
     getAllProduct();
   }
 
-  //  uploadImage(image) async {
-  //   try {
-  //     if (image != null) {
-  //       String downloadUrl = await productService.uploadImage(imageName, image);
-  //       log(downloadUrl);
-  //       notifyListeners();
-  //       return downloadUrl;
-  //     } else {
-  //       log('image is null');
-  //       return '';
-  //     }
-  //   } catch (e) {
-  //     log('got an error of $e');
-  //     rethrow;
-  //   }
-  // }
   // image funtion
   uploadImage(image) async {
     try {
@@ -130,8 +105,6 @@ clearProductControllers();
       notifyListeners();
     }
   }
-
-
 
   void search(String value) {
     if (value.isEmpty) {
@@ -170,6 +143,5 @@ clearProductControllers();
 
   // updateMyProduct(String? id, ProductModel product) {
 
-    
   // }
 }

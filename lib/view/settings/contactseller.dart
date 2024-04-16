@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/user_provider.dart';
 import 'package:olx_app_firebase/model/user_model.dart';
-import 'package:olx_app_firebase/view/screens/profile.dart';
+import 'package:olx_app_firebase/view/profile_Page/profile.dart';
 import 'package:provider/provider.dart';
 
 class ContactSellerPage extends StatelessWidget {
