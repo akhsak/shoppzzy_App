@@ -1,35 +1,9 @@
-// import 'package:flutter/material.dart';
-// import 'package:olx_app_firebase/view/addpage/addpage.dart';
-// import 'package:olx_app_firebase/widgets/text_style.dart';
-
-// class MyProductsPage extends StatelessWidget {
-//   const MyProductsPage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: textPoppins(name: 'My Products',color: Colors.white),
-//       backgroundColor: Colors.green,),
-//       body: Center(child: Text('product page')),
-//       floatingActionButton: Padding(
-//         padding: const EdgeInsets.only(right: 170,bottom: 30),
-//         child: FloatingActionButton(onPressed: () {
-//           Navigator.push(
-//               context, MaterialPageRoute(builder: (context) => Addpage()));
-//         },child: Icon(Icons.add),),
-//       ),
-//     );
-//   }
-// }
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:lottie/lottie.dart';
 import 'package:olx_app_firebase/controller/provider_home.dart';
 import 'package:olx_app_firebase/model/product_model.dart';
-import 'package:olx_app_firebase/view/addpage/addpage.dart';
 import 'package:olx_app_firebase/view/productpage/sell_product.dart';
 import 'package:olx_app_firebase/view/screens/product_details_page.dart';
 import 'package:olx_app_firebase/widgets/navigator.dart';
@@ -45,10 +19,6 @@ class MyProductPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      // appBar: AppBarWidgets().appBar(
-      //   title: 'My Products',
-      //   context,
-      // ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -111,7 +81,7 @@ class MyProductPage extends StatelessWidget {
                                     },
                                     backgroundColor: Color(0xFF7BC043),
                                     foregroundColor: Colors.white,
-                                   icon: Icons.shopping_bag,
+                                    icon: Icons.shopping_bag,
                                     label: 'Mark as Sold',
                                   ),
                                 ],
@@ -119,8 +89,11 @@ class MyProductPage extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(5.0),
                                 child: GestureDetector(
-                                  onTap: () => NavigatorWidget().push(context,
-                                      ProductDetailsPage(products: product,)),
+                                  onTap: () => NavigatorWidget().push(
+                                      context,
+                                      ProductDetailsPage(
+                                        products: product,
+                                      )),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -210,4 +183,3 @@ class MyProductPage extends StatelessWidget {
     return myProducts;
   }
 }
-
