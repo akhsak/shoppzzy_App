@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -20,10 +19,6 @@ class UpComingPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      // appBar: AppBarWidgets().appBar(
-      //   title: 'My Products',
-      //   context,
-      // ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -95,7 +90,7 @@ class UpComingPage extends StatelessWidget {
                                 padding: const EdgeInsets.all(5.0),
                                 child: GestureDetector(
                                   onTap: () => NavigatorWidget().push(context,
-                                    ProductDetailsPage(products: product)),
+                                      ProductDetailsPage(products: product)),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -135,17 +130,6 @@ class UpComingPage extends StatelessWidget {
                                                       product.price.toString()),
                                             ],
                                           ),
-                                          // Consumer<WidgetProviders>(
-                                          //     builder: (context, value, child) {
-                                          //   return AdvancedSwitch(
-                                          //     inactiveChild: Text('Sold'),
-                                          //     controller: value.isSwitched,
-                                          //     activeColor: Colors.green,
-                                          //     inactiveColor: Colors.red,
-
-                                          //     width: size.width * .15,
-                                          //   );
-                                          // })
                                         ],
                                       ),
                                     ],

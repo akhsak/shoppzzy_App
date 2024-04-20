@@ -1,5 +1,3 @@
-
-
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,12 +14,13 @@ class WishListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: textPoppins(name: 'Wishlist page',fontweight: FontWeight.w600),
-      leading:IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.arrow_back_ios)), 
+      appBar: AppBar(
+        title: textPoppins(name: 'Wishlist page', fontweight: FontWeight.w600),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios)),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 50, left: 12, right: 12),
@@ -30,20 +29,6 @@ class WishListPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              
-              //  IconButton(
-              //   onPressed: () {
-              //     Navigator.pop(context);
-              //   },
-              //   icon: const Icon(Icons.arrow_back_ios)),
-              // Center(
-              //   child: textPoppins(
-              //     name: 'wishlist',
-              //     fontsize: 25,
-              //     fontweight: FontWeight.w600,
-              //   ),
-              // ),
-              
               Consumer<ProductProvider>(
                 builder: (context, ProductProvider, child) {
                   final wishlistItems = checkUser(ProductProvider);
@@ -63,7 +48,6 @@ class WishListPage extends StatelessWidget {
                       return HomeContainer(
                         value: ProductProvider,
                         product: item,
-                        
                       );
                     },
                   );

@@ -32,7 +32,6 @@ class LoginScreen extends StatelessWidget {
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Welcome Text
               Padding(
@@ -57,9 +56,7 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        // decoration: BoxDecoration(
-                        //   borderRadius: BorderRadius.circular(10),
-                        // ),
+                       
                         child: CustomTextFormField(
                           prefixIcon: Icon(Icons.email, color: Colors.black),
                           labelText: 'Email',

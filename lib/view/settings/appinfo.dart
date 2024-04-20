@@ -1,18 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// class AppinfoPage extends StatelessWidget {
-//   const AppinfoPage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text('App info'),),
-//     );
-//   }
-// }
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:olx_app_firebase/view/settings/wiget_settings/screen_widget.dart';
@@ -57,8 +42,7 @@ class AppinfoPage extends StatelessWidget {
               settingsTextPoppins(name: 'Description'),
               const SizedBox(height: 10.0),
               Text(
-                  
-                      'Shopzzy is a mobile application designed to provide users with a convenient platform for purchasing items. With a user-friendly interface and a wide selection of products, users can easily browse, search, and add product to their wishlist and contact Shopzzy.'),
+                  'Shopzzy is a mobile application designed to provide users with a convenient platform for purchasing items. With a user-friendly interface and a wide selection of products, users can easily browse, search, and add product to their wishlist and contact Shopzzy.'),
               const SizedBox(height: 20.0),
               settingsTextPoppins(name: 'Key Features'),
               const SizedBox(height: 10.0),

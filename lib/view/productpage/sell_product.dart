@@ -8,7 +8,6 @@ import 'package:olx_app_firebase/controller/provider_home.dart';
 import 'package:olx_app_firebase/model/product_model.dart';
 import 'package:olx_app_firebase/view/productpage/widgets/widgets.dart';
 import 'package:olx_app_firebase/widgets/button.dart';
-import 'package:olx_app_firebase/widgets/button_widget.dart';
 import 'package:olx_app_firebase/widgets/pop_up.dart';
 import 'package:olx_app_firebase/widgets/text_file.dart';
 import 'package:provider/provider.dart';

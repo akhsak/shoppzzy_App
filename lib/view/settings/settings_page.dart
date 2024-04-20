@@ -1,5 +1,3 @@
-
-
 // // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,7 +20,8 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authProvider = Provider.of<AuthenticationProvider>(context, listen: false);
+    final authProvider =
+        Provider.of<AuthenticationProvider>(context, listen: false);
     final bottomProvider = Provider.of<WidgetProvider>(context, listen: false);
     final size = MediaQuery.of(context).size;
     return Scaffold(
@@ -38,13 +37,16 @@ class SettingsPage extends StatelessWidget {
                 CircleAvatar(
                   backgroundImage: userData!.profilePic != null
                       ? NetworkImage(userData.profilePic.toString())
-                      : const AssetImage('assets/profile_icon.jpg') as ImageProvider,
+                      : const AssetImage('assets/profile_icon.jpg')
+                          as ImageProvider,
                   radius: 50,
                   backgroundColor: Colors.white,
                 ),
                 SizedBox(height: size.height * 0.02),
                 Text(
-                  userData.name!.isEmpty ? 'Unknown name' : userData.name.toString(),
+                  userData.name!.isEmpty
+                      ? 'Unknown name'
+                      : userData.name.toString(),
                   style: GoogleFonts.montserrat(
                     fontWeight: FontWeight.bold,
                     fontSize: size.width * 0.05,
@@ -68,7 +70,8 @@ class SettingsPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => UserDetailsPage(products: ProductModel()),
+                            builder: (context) =>
+                                UserDetailsPage(products: ProductModel()),
                           ),
                         );
                       },

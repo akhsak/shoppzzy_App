@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/controller/authontication_provider.dart';
 import 'package:olx_app_firebase/controller/provider_home.dart';
-import 'package:olx_app_firebase/model/product_model.dart';
 import 'package:olx_app_firebase/view/home/widget/homecontainer.dart';
 import 'package:olx_app_firebase/view/home/widget/homewidget.dart';
 import 'package:olx_app_firebase/view/home/widget/widget_home.dart';
@@ -21,12 +20,6 @@ class HomeScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     Provider.of<ProductProvider>(context, listen: false).getAllProduct();
     Provider.of<AuthenticationProvider>(context, listen: false);
-
-    // final List<String> specialProduct = [
-    //   'assets/images/offer 1.jpg',
-    //   'assets/images/offer 2.jpg',
-    //   'assets/images/offer 3.jpg'
-    // ];
 
     final List<String> catorgoryName = [
       'Shirt',
@@ -148,7 +141,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-         
           const SizedBox(height: 10),
           const Padding(
             padding: EdgeInsets.all(5.0),
@@ -200,7 +192,6 @@ class HomeScreen extends StatelessWidget {
                               MaterialPageRoute(
                                 builder: (context) => ProductDetailsPage(
                                   products: products,
-                                  
                                 ),
                               ),
                             );
