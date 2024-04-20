@@ -29,7 +29,6 @@ class BottomScreen extends StatelessWidget {
           children: [
             _BottomNavItem(Icons.home, 'ᴴᵒᵐᵉ', 0, context),
             _BottomNavItem(Icons.collections, 'ᴹʸ ᴾʳᵒᵈᵘᶜᵗˢ', 1, context),
-            //  _BottomNavItem(Icons.favorite_outlined, 'ʷᶦˢʰˡᶦˢᵗ', 2, context),
             _BottomNavItem(Icons.settings, 'ˢᵉᵗᵗᶦⁿᵍˢ', 2, context),
           ],
         ),

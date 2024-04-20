@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:olx_app_firebase/widgets/button.dart';
-import 'package:olx_app_firebase/widgets/button_widget.dart';
 import 'package:olx_app_firebase/widgets/text.dart';
 
 class PopupWidgets {
