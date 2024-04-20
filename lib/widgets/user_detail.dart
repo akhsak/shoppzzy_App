@@ -39,13 +39,6 @@ class ProfileWidgets {
               child: TextFormField(
                 inputFormatters: inputFormatter != null ? [inputFormatter] : [],
                 keyboardType: keyboardType ?? TextInputType.text,
-                // validator: (value) {
-                //   if (value == null || value.isEmpty) {
-                //     return " Please enter $label";
-                //   } else {
-                //     return null;
-                //   }
-                // },
                 controller: controller,
                 decoration: InputDecoration(
                   border: const UnderlineInputBorder(
