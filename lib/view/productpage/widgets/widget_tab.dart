@@ -77,7 +77,6 @@ class _MyProductTabState extends State<MyProductTab> {
                     false;
                 NavigatorWidget().push(
                   context,
-                  //Addpage(),
                  SellProductPage(
                    products: ProductModel(
                  ),

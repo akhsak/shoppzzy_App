@@ -61,7 +61,6 @@ class UpComingPage extends StatelessWidget {
                                 motion: ScrollMotion(),
                                 children: [
                                   SlidableAction(
-                                    // borderRadius: BorderRadius.circular(20),
                                     flex: 2,
                                     onPressed: (context) async {
                                       bool confirmDelete = await PopupWidgets()
